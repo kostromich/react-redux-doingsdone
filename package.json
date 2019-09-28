@@ -4,11 +4,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "SKIP_PREFLIGHT_CHECK=true NODE_PATH=src react-scripts start",
+    "lint": "tslint --project ./tsconfig.json 'src/**/*.{ts,tsx}'",
+    "build": "SKIP_PREFLIGHT_CHECK=true NODE_PATH=src react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
@@ -16,14 +16,16 @@
     "@types/node": "12.7.8",
     "@types/react": "16.9.3",
     "@types/react-dom": "16.9.1",
-    "gh-pages": "^2.1.1",
     "react": "^16.10.0",
     "react-dom": "^16.10.0",
     "react-scripts": "3.1.2",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.20.0",
+    "tslint-config-standard": "^8.0.1",
     "typescript": "3.6.3"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
   },
   "browserslist": {
     "production": [
