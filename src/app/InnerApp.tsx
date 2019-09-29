@@ -1,14 +1,21 @@
 import React from 'react'
 import { ConnectedRouter } from 'connected-react-router'
 import { Route, Switch } from 'react-router-dom'
+import { ThemeProvider } from '@material-ui/styles'
+import createTheme from 'app/theme'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import history from 'ownHistory'
+import GlobalStyles from 'app/GlobalStyles'
 
 const InnerApp: React.FC = () => {
+  const theme = createTheme()
+
   return (
     <>
-      <CssBaseline />
-      <ConnectedRouter history={history}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <GlobalStyles />
+        <ConnectedRouter history={history}>
           <Switch>
             <Route
               exact
@@ -24,7 +31,8 @@ const InnerApp: React.FC = () => {
               render={() => (<h1>Default</h1>)}
             />
           </Switch>
-      </ConnectedRouter>
+        </ConnectedRouter>
+      </ThemeProvider>
     </>
   )
 }
