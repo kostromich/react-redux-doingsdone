@@ -1,13 +1,17 @@
 {
   "files": {
-    "main.js": "/react-redux-doingsdone/static/js/main.f604e489.chunk.js",
-    "main.js.map": "/react-redux-doingsdone/static/js/main.f604e489.chunk.js.map",
+    "main.js": "/react-redux-doingsdone/static/js/main.452016c7.chunk.js",
+    "main.js.map": "/react-redux-doingsdone/static/js/main.452016c7.chunk.js.map",
     "runtime-main.js": "/react-redux-doingsdone/static/js/runtime-main.10a5833e.js",
     "runtime-main.js.map": "/react-redux-doingsdone/static/js/runtime-main.10a5833e.js.map",
-    "static/js/2.804dd761.chunk.js": "/react-redux-doingsdone/static/js/2.804dd761.chunk.js",
-    "static/js/2.804dd761.chunk.js.map": "/react-redux-doingsdone/static/js/2.804dd761.chunk.js.map",
+    "static/js/2.3ad059fa.chunk.js": "/react-redux-doingsdone/static/js/2.3ad059fa.chunk.js",
+    "static/js/2.3ad059fa.chunk.js.map": "/react-redux-doingsdone/static/js/2.3ad059fa.chunk.js.map",
     "index.html": "/react-redux-doingsdone/index.html",
-    "precache-manifest.1d6f8a0d8da23dc63382479906590573.js": "/react-redux-doingsdone/precache-manifest.1d6f8a0d8da23dc63382479906590573.js",
-    "service-worker.js": "/react-redux-doingsdone/service-worker.js"
+    "precache-manifest.f8b7c4f1b28fb1be4f3152aa726c0d96.js": "/react-redux-doingsdone/precache-manifest.f8b7c4f1b28fb1be4f3152aa726c0d96.js",
+    "service-worker.js": "/react-redux-doingsdone/service-worker.js",
+    "static/media/facebook.3de2630c.svg": "/react-redux-doingsdone/static/media/facebook.3de2630c.svg",
+    "static/media/instagram.845d06bf.svg": "/react-redux-doingsdone/static/media/instagram.845d06bf.svg",
+    "static/media/twitter.4fe86b6e.svg": "/react-redux-doingsdone/static/media/twitter.4fe86b6e.svg",
+    "static/media/vkontakte.b213f8a9.svg": "/react-redux-doingsdone/static/media/vkontakte.b213f8a9.svg"
   }
 }
