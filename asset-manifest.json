@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/react-redux-doingsdone/static/js/main.bfba3d02.chunk.js",
+    "main.js.map": "/react-redux-doingsdone/static/js/main.bfba3d02.chunk.js.map",
+    "runtime-main.js": "/react-redux-doingsdone/static/js/runtime-main.10a5833e.js",
+    "runtime-main.js.map": "/react-redux-doingsdone/static/js/runtime-main.10a5833e.js.map",
+    "static/js/2.76eb58d0.chunk.js": "/react-redux-doingsdone/static/js/2.76eb58d0.chunk.js",
+    "static/js/2.76eb58d0.chunk.js.map": "/react-redux-doingsdone/static/js/2.76eb58d0.chunk.js.map",
+    "index.html": "/react-redux-doingsdone/index.html",
+    "precache-manifest.4d934ec3222992f6a68f7e2f3502aa87.js": "/react-redux-doingsdone/precache-manifest.4d934ec3222992f6a68f7e2f3502aa87.js",
+    "service-worker.js": "/react-redux-doingsdone/service-worker.js",
+    "static/media/facebook.3de2630c.svg": "/react-redux-doingsdone/static/media/facebook.3de2630c.svg",
+    "static/media/instagram.845d06bf.svg": "/react-redux-doingsdone/static/media/instagram.845d06bf.svg",
+    "static/media/twitter.4fe86b6e.svg": "/react-redux-doingsdone/static/media/twitter.4fe86b6e.svg",
+    "static/media/vkontakte.b213f8a9.svg": "/react-redux-doingsdone/static/media/vkontakte.b213f8a9.svg"
+  }
+}
