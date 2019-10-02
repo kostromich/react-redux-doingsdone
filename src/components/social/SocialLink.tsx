@@ -4,7 +4,6 @@ import makeStyles from '@material-ui/core/styles/makeStyles'
 import useHiddenContentStyles from 'hooks/useHiddenContentStyles'
 import { Link } from 'react-router-dom'
 import { DEFAULT_HREF } from 'helpers'
-import { IClassNameAsProp } from 'types'
 
 const useStyles = makeStyles({
   root: {
@@ -25,7 +24,8 @@ const useStyles = makeStyles({
   }
 })
 
-interface IOwnProps extends IClassNameAsProp {
+interface IOwnProps {
+  className?: string
   text: string
   icon: React.ReactNode
   href?: string

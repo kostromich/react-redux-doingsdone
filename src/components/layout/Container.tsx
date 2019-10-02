@@ -1,7 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import { IClassNameAsProp } from 'types'
 
 const useStyles = makeStyles({
   root: {
@@ -11,7 +10,9 @@ const useStyles = makeStyles({
   }
 })
 
-interface IOwnProps extends IClassNameAsProp {}
+interface IOwnProps {
+  className?: string
+}
 
 const Container: React.FC<IOwnProps> = ({ className, children }) => {
   const classes = useStyles({})

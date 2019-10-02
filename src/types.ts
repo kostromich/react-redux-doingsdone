@@ -1,3 +1,1 @@
-export interface IClassNameAsProp {
-  className?: string
-}
+export {}

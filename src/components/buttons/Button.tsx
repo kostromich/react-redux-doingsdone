@@ -2,7 +2,6 @@ import React from 'react'
 import cx from 'classnames'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import { Link } from 'react-router-dom'
-import { IClassNameAsProp } from 'types'
 import { DEFAULT_HREF } from 'helpers'
 
 const useStyles = makeStyles({
@@ -31,7 +30,8 @@ const useStyles = makeStyles({
   }
 })
 
-export interface IButtonProps extends IClassNameAsProp {
+export interface IButtonProps {
+  className?: string
   href?: string
 }
 const Button: React.FC<IButtonProps> = ({
