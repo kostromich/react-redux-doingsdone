@@ -1,5 +1,7 @@
 import React from 'react'
 import makeStyles from '@material-ui/core/styles/makeStyles'
+import useHeaderSideItem from 'hooks/useHeaderSideItemStyles'
+import SignInButton from 'components/buttons/SignInButton'
 
 const useStyles = makeStyles({
   root: {
@@ -9,12 +11,14 @@ const useStyles = makeStyles({
   }
 })
 
-const HeaderSide: React.FC = ({ children }) => {
+const HeaderSide: React.FC = () => {
   const classes = useStyles({})
+
+  const useHeaderSideItemClasses = useHeaderSideItem({})
 
   return (
     <div className={classes.root}>
-      {children}
+      <SignInButton className={useHeaderSideItemClasses.root} />
     </div>
   )
 }

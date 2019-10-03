@@ -15,6 +15,12 @@ const withGlobalStyles = withStyles({
     '#root': {
       height: '100%',
       overflow: 'auto'
+    },
+    'button, input, optgroup, select, textarea, optgroup': {
+      fontFamily: 'sans-serif',
+      fontSize: '100%',
+      lineHeight: 1.15,
+      margin: 0
     }
   }
 })
