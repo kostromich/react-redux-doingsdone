@@ -1,7 +1,7 @@
 import React from 'react'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import HeaderSide from './HeaderSide'
-import SignInButton from '../../buttons/SignInButton'
+import SignInButton from 'components/buttons/SignInButton'
 import useHeaderSideItem from 'hooks/useHeaderSideItemStyles'
 import { Link } from 'react-router-dom'
 
@@ -18,14 +18,14 @@ const Header: React.FC = () => {
   const useHeaderSideItemClasses = useHeaderSideItem({})
 
   return (
-    <div className={classes.root}>
+    <header className={classes.root}>
       <Link to='/' >
         <img src='img/logo.png' width='153' height='42' alt='Логотип Дела в порядке' />
       </Link>
       <HeaderSide>
         <SignInButton className={useHeaderSideItemClasses.root} />
       </HeaderSide>
-    </div>
+    </header>
   )
 }
 

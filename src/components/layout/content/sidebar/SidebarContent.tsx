@@ -3,19 +3,18 @@ import makeStyles from '@material-ui/core/styles/makeStyles'
 
 const useStyles = makeStyles({
   root: {
-    display: 'flex',
-    marginBottom: 120
+    width: 260
   }
 })
 
-const Content: React.FC = ({ children }) => {
+const SidebarContent: React.FC = ({ children }) => {
   const classes = useStyles({})
 
   return (
-    <div className={classes.root}>
+    <section className={classes.root}>
       {children}
-    </div>
+    </section>
   )
 }
 
-export default Content
+export default SidebarContent

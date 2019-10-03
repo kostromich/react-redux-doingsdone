@@ -44,7 +44,7 @@ const Button: React.FC<IButtonProps> = ({
   return (
     <Link
       className={cx(classes.root, className)}
-      href={href}
+      to={href}
     >
       {children}
     </Link>

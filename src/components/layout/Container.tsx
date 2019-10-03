@@ -7,14 +7,21 @@ const useStyles = makeStyles({
     width: 1140,
     margin: '0 auto',
     padding: '0 20px'
-  }
+  },
+  side: {},
+  main: {}
 })
 
 interface IOwnProps {
   className?: string
+  withSidebar?: boolean
 }
 
-const Container: React.FC<IOwnProps> = ({ className, children }) => {
+const Container: React.FC<IOwnProps> = ({
+  className,
+  children,
+                                          withSidebar = false
+}) => {
   const classes = useStyles({})
 
   return (
