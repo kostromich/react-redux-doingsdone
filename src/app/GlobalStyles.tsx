@@ -21,6 +21,12 @@ const withGlobalStyles = withStyles({
       fontSize: '100%',
       lineHeight: 1.15,
       margin: 0
+    },
+    a: {
+      textDecoration: 'none',
+      '&:hover, &:focus': {
+        textDecoration: 'underline'
+      }
     }
   }
 })

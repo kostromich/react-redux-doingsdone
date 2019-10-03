@@ -8,8 +8,19 @@ const useStyles = makeStyles({
     margin: '0 auto',
     padding: '0 20px'
   },
-  side: {},
-  main: {}
+  withSidebar: {
+    position: 'relative',
+    '&::after': {
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      left: `calc(-50vw + 280px)`,
+      zIndex: -1,
+      width: '50vw',
+      height: '100%',
+      backgroundColor: '#f9fafc'
+    }
+  }
 })
 
 interface IOwnProps {
@@ -20,12 +31,18 @@ interface IOwnProps {
 const Container: React.FC<IOwnProps> = ({
   className,
   children,
-                                          withSidebar = false
+  withSidebar = false
 }) => {
   const classes = useStyles({})
 
+  const resultingClassName = cx(
+    classes.root,
+    withSidebar ? classes.withSidebar : '',
+    className
+  )
+
   return (
-    <div className={cx(classes.root, className)}>
+    <div className={resultingClassName}>
       {children}
     </div>
   )

@@ -24,7 +24,7 @@ const SearchInput: React.FC<IOwnProps> = ({ className }) => {
       className={cx(classes.root, className)}
       type='text'
       name=''
-      value=''
+      defaultValue=''
       placeholder='Поиск по задачам'
     />
   )

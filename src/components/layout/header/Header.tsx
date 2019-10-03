@@ -1,6 +1,6 @@
 import React from 'react'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import HeaderSide from './HeaderSide'
+import HeaderSide, { IHeaderSideProps } from './HeaderSide'
 import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
@@ -11,7 +11,9 @@ const useStyles = makeStyles({
   }
 })
 
-const Header: React.FC = () => {
+export interface IHeaderProps extends IHeaderSideProps {}
+
+const Header: React.FC<IHeaderProps> = (headerSideProps) => {
   const classes = useStyles({})
 
   return (
@@ -19,7 +21,7 @@ const Header: React.FC = () => {
       <Link to='/' >
         <img src='img/logo.png' width='153' height='42' alt='Логотип Дела в порядке' />
       </Link>
-      <HeaderSide />
+      <HeaderSide {...headerSideProps} />
     </header>
   )
 }

@@ -15,7 +15,7 @@ const projects: IProject[] = [
 const useStyles = makeStyles({
   root: {},
   addProjectButton: {
-    width: 255
+    width: 225
   }
 })
 

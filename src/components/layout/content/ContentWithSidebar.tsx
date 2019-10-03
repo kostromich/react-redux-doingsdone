@@ -7,19 +7,7 @@ import MainContent from './main/MainContent'
 import { IContentProps } from './Content'
 
 const useStyles = makeStyles({
-  root: {
-    position: 'relative',
-    '&::after': {
-      content: '""',
-      position: 'absolute',
-      top: 0,
-      left: `calc(-50vw + 280px)`,
-      zIndex: -1,
-      width: '50vw',
-      height: '100%',
-      backgroundColor: '#f9fafc'
-    }
-  }
+  root: {}
 })
 
 interface IOwnProps extends IContentProps {

@@ -8,7 +8,7 @@ interface IOwnProps {
 }
 const AddProjectButton: React.FC<IOwnProps> = ({ className }) => {
   return (
-    <ButtonPlus className={className}>
+    <ButtonPlus className={className} variant='transparent'>
       {BUTTON_TEXT}
     </ButtonPlus>
   )

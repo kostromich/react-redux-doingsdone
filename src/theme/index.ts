@@ -2,6 +2,11 @@ import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 import { openSans, openSansBold } from 'theme/typography'
 
 const createTheme = () => createMuiTheme({
+  palette: {
+    background: {
+      default: 'transparent'
+    }
+  },
   typography: {
     fontSize: 16,
     fontFamily: [
