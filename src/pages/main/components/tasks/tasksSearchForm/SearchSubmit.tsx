@@ -10,7 +10,7 @@ const useStyles = makeStyles({
     width: 30,
     height: 30,
     fontSize: 0,
-    background: 'transparent url(../img/search.png) no-repeat 50% 50%',
+    background: 'transparent url(img/search.png) no-repeat 50% 50%',
     border: 0,
     boxSizing: 'border-box'
   }
