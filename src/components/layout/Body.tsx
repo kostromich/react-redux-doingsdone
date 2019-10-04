@@ -26,7 +26,7 @@ const Body: React.FC<IOwnProps> = ({
 
   return (
     <div className={cx(classes.root, className)}>
-      <h1 className={hiddenContentClasses.root}>Дела в порядке</h1>
+      <h1 className={hiddenContentClasses.any}>Дела в порядке</h1>
       {children}
     </div>
   )
