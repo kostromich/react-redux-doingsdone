@@ -22,13 +22,13 @@ const Footer: React.FC = () => {
   const classes = useStyles({})
 
   return (
-    <div className={classes.root}>
+    <footer className={classes.root}>
       <Container className={classes.container}>
         <Copyright />
         <Socials />
         <Developed />
       </Container>
-    </div>
+    </footer>
   )
 }
 

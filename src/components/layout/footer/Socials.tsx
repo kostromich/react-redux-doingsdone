@@ -23,13 +23,13 @@ const Socials: React.FC = () => {
 
   return (
     <div className={classes.root}>
-      <span className={hiddenContentClasses.root}>Мы в соцсетях:</span>
+      <span className={hiddenContentClasses.any}>Мы в соцсетях:</span>
       <FacebookLink />
-      <span className={hiddenContentClasses.root}>,</span>
+      <span className={hiddenContentClasses.any}>,</span>
       <TwitterLink />
-      <span className={hiddenContentClasses.root}>,</span>
+      <span className={hiddenContentClasses.any}>,</span>
       <InstagramLink />
-      <span className={hiddenContentClasses.root}>,</span>
+      <span className={hiddenContentClasses.any}>,</span>
       <VkontakteLink />
     </div>
   )

@@ -16,7 +16,8 @@ const useStyles = makeStyles({
 const ButtonPlus: React.FC<IButtonProps> = ({
   className,
   href,
-  children
+  children,
+  ...buttonProps
 }) => {
   const classes = useStyles({})
 
@@ -24,6 +25,7 @@ const ButtonPlus: React.FC<IButtonProps> = ({
     <Button
       className={cx(classes.root, className)}
       href={href}
+      {...buttonProps}
     >
       {children}
     </Button>

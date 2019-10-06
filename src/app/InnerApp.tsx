@@ -7,6 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import history from 'ownHistory'
 import GlobalStyles from 'app/GlobalStyles'
 import GuestPage from 'pages/guest/GuestPage'
+import MainPage from 'pages/main/MainPage'
 
 const InnerApp: React.FC = () => {
   const theme = createTheme()
@@ -19,7 +20,12 @@ const InnerApp: React.FC = () => {
         <ConnectedRouter history={history}>
           <Switch>
             <Route
+              exact
               path='/'
+              render={() => (<MainPage />)}
+            />
+            <Route
+              path='/guest'
               render={() => (<GuestPage />)}
             />
           </Switch>

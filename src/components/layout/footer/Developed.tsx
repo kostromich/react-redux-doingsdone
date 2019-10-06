@@ -7,7 +7,7 @@ const Developed: React.FC = () => {
 
   return (
     <div>
-      <span className={hiddenContentClasses.root}>Разработано:</span>
+      <span className={hiddenContentClasses.any}>Разработано:</span>
 
       <Link to='https://htmlacademy.ru/intensive/php'>
         <img src='img/htmlacademy.svg' alt='HTML Academy' width='118' height='40' />

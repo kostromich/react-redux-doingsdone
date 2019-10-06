@@ -1,6 +1,5 @@
 import React from 'react'
-import Button from './ButtonTransparent'
-import { IButtonProps } from './Button'
+import Button, { IButtonProps } from './Button'
 
 const BUTTON_TEXT = 'Войти'
 
@@ -12,6 +11,7 @@ const SignInButton: React.FC<IButtonProps> = ({
     <Button
       className={className}
       href={href}
+      variant='filled'
     >
       {BUTTON_TEXT}
     </Button>

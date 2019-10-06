@@ -1,7 +1,8 @@
 import React from 'react'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import Layout from 'components/layout/Layout'
-import Welcome from './Welcome'
+import HeaderSideContent from './components/HeaderSideContent'
+import Welcome from './components/Welcome'
 
 const useStyles = makeStyles({
   body: {
@@ -16,7 +17,8 @@ const GuestPage: React.FC = () => {
   return (
     <Layout
       bodyClassName={classes.body}
-      content={<Welcome />}
+      mainContent={<Welcome />}
+      headerSideContent={<HeaderSideContent />}
     />
   )
 }

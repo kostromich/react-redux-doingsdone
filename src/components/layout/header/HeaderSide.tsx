@@ -9,12 +9,16 @@ const useStyles = makeStyles({
   }
 })
 
-const HeaderSide: React.FC = ({ children }) => {
+export interface IHeaderSideProps {
+  headerSideContent: React.ReactNode
+}
+
+const HeaderSide: React.FC<IHeaderSideProps> = ({ headerSideContent }) => {
   const classes = useStyles({})
 
   return (
     <div className={classes.root}>
-      {children}
+      {headerSideContent}
     </div>
   )
 }
