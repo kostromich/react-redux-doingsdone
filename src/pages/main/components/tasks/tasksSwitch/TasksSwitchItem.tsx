@@ -1,6 +1,6 @@
-import makeStyles from '@material-ui/core/styles/makeStyles'
 import React from 'react'
 import cx from 'classnames'
+import makeStyles from '@material-ui/core/styles/makeStyles'
 import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
@@ -49,7 +49,7 @@ const TasksSwitchItem: React.FC<IOwnProps> = ({
 
   return (
     <Link
-      href={href}
+      to={href}
       className={resultingClassName}
     >
       {text}

@@ -28,7 +28,7 @@ const Input: React.FC<IOwnProps> = ({
       {...inputProps}
       className={cx(classes.root, hiddenContentClasses.input)}
       type='checkbox'
-      checked={isChecked}
+      defaultChecked={isChecked}
     />
   )
 }

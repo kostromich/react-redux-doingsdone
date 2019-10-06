@@ -18,7 +18,7 @@ const CompletedTasksVisibilitySwitcher: React.FC = () => {
   return (
     <Checkbox
       checkboxText='Показывать выполненные'
-      checkBoxTextClassName={classes.checkboxText}
+      checkboxTextClassName={classes.checkboxText}
       isChecked={isChecked}
     />
   )

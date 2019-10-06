@@ -16,14 +16,14 @@ const useStyles = makeStyles({
 interface IOwnProps {
   className?: string
   checkboxInputClassName?: string
-  checkBoxTextClassName?: string
+  checkboxTextClassName?: string
   checkboxText?: string
   isChecked?: boolean
 }
 
 const Checkbox: React.FC<IOwnProps> = ({
   className,
-  checkBoxTextClassName,
+  checkboxTextClassName,
   checkboxText,
   isChecked = false
 }) => {
@@ -32,7 +32,7 @@ const Checkbox: React.FC<IOwnProps> = ({
   return (
     <label className={cx(classes.root, className)}>
       <Input isChecked={isChecked} />
-      <Text text={checkboxText} className={checkBoxTextClassName} />
+      <Text text={checkboxText} className={checkboxTextClassName} />
     </label>
   )
 }
