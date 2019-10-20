@@ -5,13 +5,14 @@ const BUTTON_TEXT = 'Войти'
 
 const SignInButton: React.FC<IButtonProps> = ({
   className,
-  href
+  href,
+  ...props
 }) => {
   return (
     <Button
       className={className}
       href={href}
-      variant='filled'
+      {...props}
     >
       {BUTTON_TEXT}
     </Button>

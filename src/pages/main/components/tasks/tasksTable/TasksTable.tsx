@@ -1,5 +1,6 @@
 import React from 'react'
-import useTasksTableStyles from 'hooks/useTasksTableStyles'
+import cx from 'classnames'
+import makeStyles from '@material-ui/core/styles/makeStyles'
 import TaskRow from './TaskRow'
 import { ITaskToDisplay } from 'types'
 
@@ -14,13 +15,26 @@ const tasks: ITaskToDisplay[] = [
   }
 ]
 
-const TasksTable: React.FC = () => {
-  const tableClasses = useTasksTableStyles({})
+const useStyles = makeStyles({
+  root: {
+    width: '100%',
+    borderCollapse: 'collapse'
+  }
+})
+
+interface IOwnProps {
+  className?: string
+}
+
+const TasksTable: React.FC<IOwnProps> = ({ className }) => {
+  const classes = useStyles({})
 
   return (
-    <table className={tableClasses.table}>
+    <table className={cx(classes.root, className)}>
       <tbody>
-      {tasks.map(task => (<TaskRow key={task.id} task={task} />))}
+      {tasks.map(task => (
+        <TaskRow key={task.id} task={task} />
+      ))}
       </tbody>
     </table>
   )

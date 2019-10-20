@@ -15,10 +15,10 @@ export const hiddenContentStyles: CSSProperties = {
 }
 
 const useHiddenContentStyles = makeStyles({
-  any: {
+  hiddenTag: {
     '&:not(:focus):not(:active), &input': hiddenContentStyles
   },
-  input: hiddenContentStyles
+  hiddenInput: hiddenContentStyles
 })
 
 export default useHiddenContentStyles

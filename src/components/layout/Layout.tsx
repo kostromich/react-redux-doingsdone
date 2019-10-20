@@ -1,30 +1,30 @@
 import React from 'react'
 import Body from './Body'
+import Content from './content/Content'
 import PageWrapper from './PageWrapper'
 import Container from './Container'
-import Header, { IHeaderProps } from './header/Header'
-import Content, { IContentProps } from './content/Content'
+import Header from './header/Header'
 import Footer from './footer/Footer'
 
 interface IOwnProps {
   bodyClassName?: string
+  headerContent: React.ReactNode
+  content: React.ReactNode
 }
 
-const Layout: React.FC<IOwnProps & IContentProps & IHeaderProps> = ({
+const Layout: React.FC<IOwnProps> = ({
   bodyClassName,
-  mainContent,
-  sidebarContent,
-  headerSideContent
+  headerContent,
+  content
 }) => {
   return (
     <Body className={bodyClassName}>
       <PageWrapper>
-        <Container withSidebar={!!sidebarContent}>
-          <Header headerSideContent={headerSideContent} />
-          <Content
-            mainContent={mainContent}
-            sidebarContent={sidebarContent}
-          />
+        <Container>
+          <Header>
+            {headerContent}
+          </Header>
+          {content}
         </Container>
       </PageWrapper>
       <Footer />

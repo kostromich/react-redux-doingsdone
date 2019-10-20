@@ -3,18 +3,18 @@ import makeStyles from '@material-ui/core/styles/makeStyles'
 
 const useStyles = makeStyles({
   root: {
-    width: 260
+    marginLeft: 30
   }
 })
 
-const SidebarContent: React.FC = ({ children }) => {
+const HeaderSideItem: React.FC = ({ children }) => {
   const classes = useStyles({})
 
   return (
-    <section className={classes.root}>
+    <div className={classes.root}>
       {children}
-    </section>
+    </div>
   )
 }
 
-export default SidebarContent
+export default HeaderSideItem

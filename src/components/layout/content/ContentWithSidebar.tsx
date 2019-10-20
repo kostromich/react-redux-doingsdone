@@ -1,32 +1,40 @@
 import React from 'react'
-import cx from 'classnames'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import useContentCommonStyles from 'hooks/useContentCommonStyles'
-import SidebarContent from './sidebar/SidebarContent'
-import MainContent from './main/MainContent'
-import { IContentProps } from './Content'
+import Sidebar from './sidebar/Sidebar'
+import Main from './main/Main'
 
 const useStyles = makeStyles({
-  root: {}
+  root: {
+    display: 'flex',
+    marginBottom: 120
+  }
 })
 
-interface IOwnProps extends IContentProps {
+interface IOwnProps {
+  sidebarHeader?: string
   sidebarContent: React.ReactNode
+  mainHeader?: string
+  mainContent: React.ReactNode
 }
 
 const ContentWithSidebar: React.FC<IOwnProps> = ({
-  mainContent,
-  sidebarContent
+  sidebarHeader,
+  sidebarContent,
+  mainHeader,
+  mainContent
 }) => {
   const classes = useStyles({})
-  const contentCommonClasses = useContentCommonStyles({})
 
   return (
-    <div className={cx(contentCommonClasses.root, classes.root)}>
-      <SidebarContent>{sidebarContent}</SidebarContent>
-      <MainContent>
-        {mainContent}
-      </MainContent>
+    <div className={classes.root}>
+      <Sidebar
+        header={sidebarHeader}
+        content={sidebarContent}
+      />
+      <Main
+        header={mainHeader}
+        content={mainContent}
+      />
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
+import cx from 'classnames'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import HeaderSide, { IHeaderSideProps } from './HeaderSide'
-import { Link } from 'react-router-dom'
+import ProjectLogo from 'components/ProjectLogo'
 
 const useStyles = makeStyles({
   root: {
@@ -11,17 +11,17 @@ const useStyles = makeStyles({
   }
 })
 
-export interface IHeaderProps extends IHeaderSideProps {}
+interface IOwnProps {
+  className?: string
+}
 
-const Header: React.FC<IHeaderProps> = (headerSideProps) => {
+const Header: React.FC<IOwnProps> = ({ className, children }) => {
   const classes = useStyles({})
 
   return (
-    <header className={classes.root}>
-      <Link to='/' >
-        <img src='img/logo.png' width='153' height='42' alt='Логотип Дела в порядке' />
-      </Link>
-      <HeaderSide {...headerSideProps} />
+    <header className={cx(classes.root, className)}>
+      <ProjectLogo />
+      {children}
     </header>
   )
 }
