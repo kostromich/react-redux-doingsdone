@@ -1,14 +1,15 @@
 import React from 'react'
 import ButtonPlus from 'components/buttons/ButtonPlus'
+import { IButtonProps } from 'components/buttons/Button'
 
 const BUTTON_TEXT = 'Добавить проект'
 
-interface IOwnProps {
-  className?: string
-}
-const AddProjectButton: React.FC<IOwnProps> = ({ className }) => {
+const AddProjectButton: React.FC<IButtonProps> = (buttonProps) => {
   return (
-    <ButtonPlus className={className} variant='transparent'>
+    <ButtonPlus
+      variant='transparent'
+      {...buttonProps}
+    >
       {BUTTON_TEXT}
     </ButtonPlus>
   )

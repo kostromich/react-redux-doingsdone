@@ -1,5 +1,5 @@
 import React from 'react'
-import makeStyles from '@material-ui/core/styles/makeStyles'
+import SidebarButton from 'components/buttons/SidebarButton'
 import EmptyProjects from './EmptyProjects'
 import ProjectsList from './projectsList/ProjectsList'
 import AddProjectButton from './AddProjectButton'
@@ -12,23 +12,14 @@ const projects: IProject[] = [
   { id: '2', name: 'Активный проект', tasksCount: 0, isActive: true }
 ]
 
-const useStyles = makeStyles({
-  root: {},
-  addProjectButton: {
-    width: 225
-  }
-})
-
 const Projects: React.FC = () => {
-  const classes = useStyles({})
-
   return (
     <>
       {projects.length
         ? <ProjectsList projects={projects} />
         : <EmptyProjects />
       }
-      <AddProjectButton className={classes.addProjectButton} />
+      <SidebarButton ButtonComponent={AddProjectButton} />
     </>
   )
 }

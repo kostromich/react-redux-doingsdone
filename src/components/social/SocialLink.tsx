@@ -45,7 +45,7 @@ const SocialLink: React.FC<IOwnProps> = ({
       className={cx(classes.root, className)}
       to={href}
     >
-      <span className={hiddenContentClasses.any}>
+      <span className={hiddenContentClasses.hiddenTag}>
         {text}
       </span>
       {icon}

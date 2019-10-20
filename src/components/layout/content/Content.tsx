@@ -1,29 +1,20 @@
 import React from 'react'
-import ContentWithSidebar from './ContentWithSidebar'
-import SingleContent from './SingleContent'
+import makeStyles from '@material-ui/core/styles/makeStyles'
 
-export interface IContentProps {
-  mainContent: React.ReactNode
-  sidebarContent?: React.ReactNode
-}
-
-const Content: React.FC<IContentProps> = ({
-  mainContent,
-  sidebarContent
-}) => {
-  const withSidebar = !!sidebarContent
-
-  if (withSidebar) {
-    return <ContentWithSidebar
-      mainContent={mainContent}
-      sidebarContent={sidebarContent}
-    />
+const useStyles = makeStyles({
+  root: {
+    display: 'flex',
+    marginBottom: 120
   }
+})
+
+const Content: React.FC = ({ children }) => {
+  const classes = useStyles({})
 
   return (
-    <SingleContent>
-      {mainContent}
-    </SingleContent>
+    <div className={classes.root}>
+      {children}
+    </div>
   )
 }
 
