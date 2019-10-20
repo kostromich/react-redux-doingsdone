@@ -1,17 +1,17 @@
 import React from 'react'
 import Button, { IButtonProps } from './Button'
+import { ROUTE_SIGNIN_PAGE } from 'routes'
 
 const BUTTON_TEXT = 'Войти'
 
 const SignInButton: React.FC<IButtonProps> = ({
   className,
-  href,
   ...props
 }) => {
   return (
     <Button
       className={className}
-      href={href}
+      href={ROUTE_SIGNIN_PAGE}
       {...props}
     >
       {BUTTON_TEXT}

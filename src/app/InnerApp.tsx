@@ -8,6 +8,8 @@ import history from 'ownHistory'
 import GlobalStyles from 'app/GlobalStyles'
 import GuestPage from 'pages/guest/GuestPage'
 import MainPage from 'pages/main/MainPage'
+import SignupPage from 'pages/signup/SignupPage'
+import * as routes from 'routes'
 
 const InnerApp: React.FC = () => {
   const theme = createTheme()
@@ -21,12 +23,16 @@ const InnerApp: React.FC = () => {
           <Switch>
             <Route
               exact
-              path='/'
-              render={() => (<MainPage />)}
+              path={routes.ROUTE_HOME_PAGE}
+              component={MainPage}
             />
             <Route
-              path='/guest'
-              render={() => (<GuestPage />)}
+              path={routes.ROUTE_GUEST_PAGE}
+              component={GuestPage}
+            />
+            <Route
+              path={routes.ROUTE_SIGNUP_PAGE}
+              component={SignupPage}
             />
           </Switch>
         </ConnectedRouter>

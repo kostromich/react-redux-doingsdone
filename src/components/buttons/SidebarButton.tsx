@@ -8,14 +8,14 @@ const useStyles = makeStyles({
   }
 })
 
-interface IOwnProps {
+interface IOwnProps extends IButtonProps {
   ButtonComponent: React.ComponentType<IButtonProps>
 }
 
-const SidebarButton: React.FC<IOwnProps> = ({ ButtonComponent }) => {
+const SidebarButton: React.FC<IOwnProps> = ({ ButtonComponent, ...buttonProps }) => {
   const classes = useStyles()
   return (
-    <ButtonComponent className={classes.root} />
+    <ButtonComponent className={classes.root} {...buttonProps} />
   )
 }
 

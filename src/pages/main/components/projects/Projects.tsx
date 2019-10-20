@@ -19,7 +19,10 @@ const Projects: React.FC = () => {
         ? <ProjectsList projects={projects} />
         : <EmptyProjects />
       }
-      <SidebarButton ButtonComponent={AddProjectButton} />
+      <SidebarButton
+        ButtonComponent={AddProjectButton}
+        variant='transparent'
+      />
     </>
   )
 }

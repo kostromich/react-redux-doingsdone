@@ -7,7 +7,6 @@ const BUTTON_TEXT = 'Добавить проект'
 const AddProjectButton: React.FC<IButtonProps> = (buttonProps) => {
   return (
     <ButtonPlus
-      variant='transparent'
       {...buttonProps}
     >
       {BUTTON_TEXT}
