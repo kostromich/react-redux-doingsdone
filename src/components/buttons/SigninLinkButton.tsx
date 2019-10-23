@@ -1,22 +1,22 @@
 import React from 'react'
-import Button, { IButtonProps } from './Button'
+import LinkButton, { ILinkButtonProps } from './LinkButton'
 import { ROUTE_SIGNIN_PAGE } from 'routes'
 
 const BUTTON_TEXT = 'Войти'
 
-const SignInButton: React.FC<IButtonProps> = ({
+const SigninLinkButton: React.FC<ILinkButtonProps> = ({
   className,
   ...props
 }) => {
   return (
-    <Button
+    <LinkButton
       className={className}
-      href={ROUTE_SIGNIN_PAGE}
+      to={ROUTE_SIGNIN_PAGE}
       {...props}
     >
       {BUTTON_TEXT}
-    </Button>
+    </LinkButton>
   )
 }
 
-export default SignInButton
+export default SigninLinkButton

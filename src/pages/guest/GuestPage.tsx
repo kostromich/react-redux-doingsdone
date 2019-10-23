@@ -3,7 +3,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles'
 import Layout from 'components/layout/Layout'
 import Content from 'components/layout/content/Content'
 import HeaderSideItem from 'components/layout/header/HeaderSideItem'
-import SignInButton from 'components/buttons/SignInButton'
+import SigninLinkButton from 'components/buttons/SigninLinkButton'
 import HeaderSide from '../../components/layout/header/HeaderSide'
 import Welcome from './Welcome'
 
@@ -21,7 +21,7 @@ const GuestPage: React.FC = () => {
     <Layout
       bodyClassName={classes.body}
       headerContent={<HeaderSide><HeaderSideItem>
-        <SignInButton variant='transparent' />
+        <SigninLinkButton variant='transparent' />
       </HeaderSideItem></HeaderSide>}
       content={<Content><Welcome /></Content>}
     />

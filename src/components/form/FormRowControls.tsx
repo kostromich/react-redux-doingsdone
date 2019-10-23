@@ -1,6 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import makeStyles from '@material-ui/core/styles/makeStyles'
+import Button from 'components/buttons/Button'
 import ErrorMessage from './ErrorMessage'
 import FormRow, { IFormRowProps } from './FormRow'
 
@@ -17,13 +18,19 @@ interface IOwnProps extends IFormRowProps {
 
 const FormRowControls: React.FC<IOwnProps> = ({ className, errorMessage }) => {
   const classes = useStyles({})
-  console.log(errorMessage)
+
   return (
     <FormRow className={cx(classes.root, className)}>
       {errorMessage &&
         <ErrorMessage>{errorMessage}</ErrorMessage>
       }
-      <input className='button' type='submit' name='' value='Зарегистрироваться' />
+      <Button
+        type='submit'
+        name='submit'
+        value='Зарегистрироваться'
+      >
+        Зарегистрироваться
+      </Button>
     </FormRow>
   )
 }

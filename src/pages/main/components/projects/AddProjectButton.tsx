@@ -1,16 +1,15 @@
 import React from 'react'
-import ButtonPlus from 'components/buttons/ButtonPlus'
-import { IButtonProps } from 'components/buttons/Button'
+import LinkButton, { ILinkButtonProps } from 'components/buttons/LinkButton'
 
 const BUTTON_TEXT = 'Добавить проект'
 
-const AddProjectButton: React.FC<IButtonProps> = (buttonProps) => {
+const AddProjectButton: React.FC<ILinkButtonProps> = (buttonProps) => {
   return (
-    <ButtonPlus
+    <LinkButton
       {...buttonProps}
     >
       {BUTTON_TEXT}
-    </ButtonPlus>
+    </LinkButton>
   )
 }
 

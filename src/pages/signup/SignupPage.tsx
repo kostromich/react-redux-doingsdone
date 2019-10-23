@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from 'components/layout/Layout'
 import HeaderSide from 'components/layout/header/HeaderSide'
 import HeaderSideItem from 'components/layout/header/HeaderSideItem'
-import SignInButton from 'components/buttons/SignInButton'
+import SigninLinkButton from 'components/buttons/SigninLinkButton'
 import ContentWithSidebar from 'components/layout/content/ContentWithSidebar'
 import SidebarButton from 'components/buttons/SidebarButton'
 import SignupForm from './components/signupForm/SignupForm'
@@ -13,7 +13,7 @@ const SignupPage: React.FC = () => {
       headerContent={
         <HeaderSide>
           <HeaderSideItem>
-            <SignInButton variant='transparent'/>
+            <SigninLinkButton variant='transparent' />
           </HeaderSideItem>
         </HeaderSide>
       }
@@ -21,7 +21,7 @@ const SignupPage: React.FC = () => {
         <ContentWithSidebar
           sidebarInfo='Если у вас уже есть аккаунт, авторизуйтесь на сайте'
           sidebarContent={<SidebarButton
-            ButtonComponent={SignInButton}
+            ButtonComponent={SigninLinkButton}
             variant='transparent'
           />}
           mainHeader='Регистрация'
