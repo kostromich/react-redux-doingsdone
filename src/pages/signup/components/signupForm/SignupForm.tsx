@@ -1,63 +1,42 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Form from 'components/form/Form'
-import FormRow from 'components/form/FormRow'
-import Label from 'components/form/Label'
-import Input from 'components/form/Input'
 import FormRowControls from 'components/form/FormRowControls'
+import EmailField from './EmailField'
+import PasswordField from './PasswordField'
+import NameField from './NameField'
+import { addNewUser, clearSignupForm, validateSignupForm } from 'modules/signupForm'
+import { getSignupFormErrors } from 'selectors'
 
 const SignupForm: React.FC = () => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(clearSignupForm())
+  }, [ dispatch ])
+
+  const errorMessage = useSelector(getSignupFormErrors)
+
+  const onFormSubmit = () => {
+    dispatch(validateSignupForm())
+
+    if (!errorMessage) {
+      dispatch(addNewUser())
+    }
+  }
+
   return (
     <Form autoComplete='off'>
-      <FormRow>
-        <Label
-          isRequired={true}
-          htmlFor='email'
-        >
-          E-mail
-        </Label>
-        <Input
-          type='text'
-          name='email'
-          id='email'
-          value=''
-          placeholder='Введите e-mail'
-          errorMessage='E-mail введён некорректно'
-        />
-      </FormRow>
+      <EmailField />
 
-      <FormRow>
-        <Label
-          isRequired={true}
-          htmlFor='password'
-        >
-          Пароль
-        </Label>
-        <Input
-          type='password'
-          name='password'
-          id='password'
-          value=''
-          placeholder='Введите пароль'
-        />
-      </FormRow>
+      <PasswordField />
 
-      <FormRow>
-        <Label
-          isRequired={true}
-          htmlFor='name'
-        >
-          Имя
-        </Label>
-        <Input
-          type='text'
-          name='name'
-          id='name'
-          value=''
-          placeholder='Введите имя'
-        />
-      </FormRow>
+      <NameField />
 
-      <FormRowControls errorMessage='Пожалуйста, исправьте ошибки в форме' />
+      <FormRowControls
+        errorMessage={errorMessage}
+        onFormSubmit={onFormSubmit}
+      />
     </Form>
   )
 }

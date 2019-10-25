@@ -24,11 +24,14 @@ const useStyles = makeStyles({
   }
 })
 
-interface IOwnProps extends React.HTMLProps<HTMLInputElement> {
+export interface IInputProps extends React.HTMLProps<HTMLInputElement> {
+  id: string
+  name: string
   className?: string
   errorMessage?: string
 }
-const Input: React.FC<IOwnProps> = ({
+
+const Input: React.FC<IInputProps> = ({
   className,
   errorMessage,
   ...inputProps

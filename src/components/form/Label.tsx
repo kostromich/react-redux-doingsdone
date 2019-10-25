@@ -10,12 +10,12 @@ const useStyles = makeStyles({
   }
 })
 
-interface IOwnProps extends React.HTMLProps<HTMLLabelElement> {
+export interface ILabelProps extends React.HTMLProps<HTMLLabelElement> {
   className?: string
   isRequired?: boolean
 }
 
-const Label: React.FC<IOwnProps> = ({
+const Label: React.FC<ILabelProps> = ({
   className,
   children,
   isRequired = false,

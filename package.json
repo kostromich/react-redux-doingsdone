@@ -35,7 +35,8 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "typescript": "3.6.3",
-    "use-react-router": "^1.0.7"
+    "use-react-router": "^1.0.7",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "gh-pages": "^2.1.1",
