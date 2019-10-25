@@ -1,6 +1,6 @@
 import React from 'react'
 import { ConnectedRouter } from 'connected-react-router'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/styles'
 import createTheme from 'theme'
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -27,13 +27,14 @@ const InnerApp: React.FC = () => {
               component={MainPage}
             />
             <Route
-              path={routes.ROUTE_GUEST_PAGE}
-              component={GuestPage}
-            />
-            <Route
               path={routes.ROUTE_SIGNUP_PAGE}
               component={SignupPage}
             />
+            <Route
+              path={routes.ROUTE_GUEST_PAGE}
+              component={GuestPage}
+            />
+            <Redirect to={routes.ROUTE_GUEST_PAGE} />
           </Switch>
         </ConnectedRouter>
       </ThemeProvider>
