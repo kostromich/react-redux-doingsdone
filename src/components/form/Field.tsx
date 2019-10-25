@@ -11,6 +11,7 @@ export interface IFieldProps extends IInputProps {
   touchHandler?: () => void
   changeHandler?: (e: FormEvent<HTMLInputElement>) => void
   blurHandler?: (e: FormEvent<HTMLInputElement>) => void
+  focusHandler?: (e: FormEvent<HTMLInputElement>) => void
 }
 
 const Field: React.FC<IFieldProps> = ({
@@ -21,15 +22,12 @@ const Field: React.FC<IFieldProps> = ({
   touchHandler,
   changeHandler,
   blurHandler,
+  focusHandler,
   ...inputProps
 }) => {
   const { id } = inputProps
 
   const onChange = (e: FormEvent<HTMLInputElement>) => {
-    if (touchHandler) {
-      touchHandler()
-    }
-
     if (changeHandler) {
       changeHandler(e)
     }
@@ -42,6 +40,12 @@ const Field: React.FC<IFieldProps> = ({
 
     if (blurHandler) {
       blurHandler(e)
+    }
+  }
+
+  const onFocus = (e: FormEvent<HTMLInputElement>) => {
+    if (focusHandler) {
+      focusHandler(e)
     }
   }
 
@@ -60,6 +64,7 @@ const Field: React.FC<IFieldProps> = ({
         required={isRequired}
         onChange={onChange}
         onBlur={onBlur}
+        onFocus={onFocus}
         {...inputProps}
       />
     </FormRow>

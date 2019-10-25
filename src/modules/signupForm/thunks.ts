@@ -1,75 +1,61 @@
 import {
   setSignupFormNameErrors,
   setSignupFormEmailErrors,
-  setSignupFormPasswordErrors, setSignupFormErrors
+  setSignupFormPasswordErrors,
+  setSignupFormErrors,
+  setSignupFormEmailTouched,
+  setSignupFormPasswordTouched,
+  setSignupFormNameTouched
 } from './actions'
 import {
   getSignupFormEmailValue,
+  getSignupFormFieldsErrors,
   getSignupFormNameValue,
   getSignupFormPasswordValue,
-  getSignupFormTouchedFields,
-  getSignupFormUntouchedFields
+  getSignupFormUser
 } from './selectors'
 import { emailValidator, nameValidator, passwordValidator, SIGNUP_FORM_ERROR } from './validators'
-import { getNowUnixTime } from 'helpers'
 import { IState } from 'types'
-
-const uuid4 = require('uuid/v4')
 
 export const validateName = (title: string) => async dispatch => {
   const errors = nameValidator(title)
   dispatch(setSignupFormNameErrors(errors))
-
-  if (errors.length > 0) {
-    dispatch(setSignupFormErrors([ SIGNUP_FORM_ERROR ]))
-  }
 }
 
 export const validateEmail = (email: string) => async dispatch => {
   const errors = emailValidator(email)
-  dispatch(setSignupFormEmailErrors(errors))
 
-  if (errors.length > 0) {
-    dispatch(setSignupFormErrors([ SIGNUP_FORM_ERROR ]))
-  }
+  dispatch(setSignupFormEmailErrors(errors))
 }
 
 export const validatePassword = (password: string) => async dispatch => {
   const errors = passwordValidator(password)
-  dispatch(setSignupFormPasswordErrors(errors))
 
-  if (errors.length > 0) {
-    dispatch(setSignupFormErrors([ SIGNUP_FORM_ERROR ]))
-  }
+  dispatch(setSignupFormPasswordErrors(errors))
 }
 
 export const validateSignupForm = () => async (dispatch, getState: () => IState) => {
+  dispatch(setSignupFormEmailTouched(true))
   dispatch(validateEmail(getSignupFormEmailValue(getState())))
+
+  dispatch(setSignupFormPasswordTouched(true))
   dispatch(validatePassword(getSignupFormPasswordValue(getState())))
+
+  dispatch(setSignupFormNameTouched(true))
   dispatch(validateName(getSignupFormNameValue(getState())))
 
-  const untouchedFields = getSignupFormUntouchedFields(getState())
+  const formFieldsErrors = getSignupFormFieldsErrors(getState())
 
-  const touchedFieldsWithErrors = getSignupFormTouchedFields(getState())
-    .filter(one => one.errors && one.errors.length > 0)
-
-  if (untouchedFields.length > 0 || touchedFieldsWithErrors.length > 0) {
+  if (formFieldsErrors.length > 0) {
     dispatch(setSignupFormErrors([ SIGNUP_FORM_ERROR ]))
-    return
+  } else {
+    dispatch(setSignupFormErrors([]))
   }
-
-  dispatch(setSignupFormErrors([]))
 }
 
 export const addNewUser = () => async (dispatch, getState: () => IState) => {
   const state = getState()
 
   alert('check console for new user params')
-  console.log({
-    id: uuid4(),
-    email: getSignupFormEmailValue(state),
-    password: getSignupFormPasswordValue(state),
-    name: getSignupFormNameValue(state),
-    createdAt: getNowUnixTime()
-  })
+  console.log('signupFormUser', getSignupFormUser(state))
 }

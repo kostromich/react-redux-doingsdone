@@ -6,7 +6,7 @@ import EmailField from './EmailField'
 import PasswordField from './PasswordField'
 import NameField from './NameField'
 import { addNewUser, clearSignupForm, validateSignupForm } from 'modules/signupForm'
-import { getSignupFormErrors } from 'selectors'
+import { getSignupFormErrors, getSignupFormTouched } from 'selectors'
 
 const SignupForm: React.FC = () => {
   const dispatch = useDispatch()
@@ -15,12 +15,13 @@ const SignupForm: React.FC = () => {
     dispatch(clearSignupForm())
   }, [ dispatch ])
 
-  const errorMessage = useSelector(getSignupFormErrors)
+  const formErrors = useSelector(getSignupFormErrors)
+  const isFormTouched = useSelector(getSignupFormTouched)
 
   const onFormSubmit = () => {
     dispatch(validateSignupForm())
 
-    if (!errorMessage) {
+    if (formErrors.length === 0 && isFormTouched) {
       dispatch(addNewUser())
     }
   }
@@ -34,7 +35,7 @@ const SignupForm: React.FC = () => {
       <NameField />
 
       <FormRowControls
-        errorMessage={errorMessage}
+        errorMessage={isFormTouched && formErrors.join(', ')}
         onFormSubmit={onFormSubmit}
       />
     </Form>

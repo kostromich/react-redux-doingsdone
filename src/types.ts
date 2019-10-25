@@ -37,9 +37,9 @@ export interface IUser extends IUserData {
 }
 
 export interface IFormFieldState {
-  touched: boolean
+  isTouched: boolean,
   value?: any
-  errors?: string[]
+  errors: string[]
 }
 
 export interface IGlobalState {

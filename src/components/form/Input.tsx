@@ -20,7 +20,8 @@ const useStyles = makeStyles({
   },
   errorMessage: {
     margin: '2px 0 0 0 ',
-    fontSize: 11
+    fontSize: 11,
+    height: 11
   }
 })
 
@@ -44,9 +45,9 @@ const Input: React.FC<IInputProps> = ({
         className={cx(classes.root, errorMessage ? classes.error : '')}
         {...inputProps}
       />
-      {errorMessage &&
-        <ErrorMessage className={classes.errorMessage}>{errorMessage}</ErrorMessage>
-      }
+      <ErrorMessage className={classes.errorMessage}>
+        {errorMessage}
+      </ErrorMessage>
     </>
   )
 }

@@ -13,14 +13,20 @@ const NameField: React.FC = () => {
 
   const {
     value: name = '',
-    errors = []
+    errors = [],
+    isTouched
   } = useSelector(getSignupFormName)
+
+  React.useEffect(() => {
+    dispatch(validateName(name))
+  }, [ name, dispatch ])
 
   return (
     <Field
       changeHandler={e => dispatch(setSignupFormNameValue(e.currentTarget.value))}
       blurHandler={e => dispatch(validateName(e.currentTarget.value))}
-      touchHandler={() => dispatch(setSignupFormNameTouched())}
+      focusHandler={() => dispatch(setSignupFormNameTouched(false))}
+      touchHandler={() => dispatch(setSignupFormNameTouched(true))}
       isRequired={true}
       labelText='Имя'
       id='name'
@@ -28,7 +34,7 @@ const NameField: React.FC = () => {
       type='text'
       placeholder='Введите имя'
       value={name}
-      errorMessage={errors.join(', ')}
+      errorMessage={isTouched && errors.join(', ')}
     />
   )
 }

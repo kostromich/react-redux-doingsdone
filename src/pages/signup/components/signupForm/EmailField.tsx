@@ -11,16 +11,23 @@ import { getSignupFormEmail } from 'selectors'
 const EmailField: React.FC = () => {
   const dispatch = useDispatch()
 
+  const fieldState = useSelector(getSignupFormEmail)
   const {
     value: email = '',
-    errors = []
-  } = useSelector(getSignupFormEmail)
+    errors = [],
+    isTouched
+  } = fieldState
+
+  React.useEffect(() => {
+    dispatch(validateEmail(email))
+  }, [ email, dispatch ])
 
   return (
     <Field
       changeHandler={e => dispatch(setSignupFormEmailValue(e.currentTarget.value))}
       blurHandler={e => dispatch(validateEmail(e.currentTarget.value))}
-      touchHandler={() => dispatch(setSignupFormEmailTouched())}
+      focusHandler={() => dispatch(setSignupFormEmailTouched(false))}
+      touchHandler={() => dispatch(setSignupFormEmailTouched(true))}
       isRequired={true}
       labelText='E-mail'
       id='email'
@@ -28,7 +35,7 @@ const EmailField: React.FC = () => {
       type='email'
       placeholder='Введите email'
       value={email}
-      errorMessage={errors.join(', ')}
+      errorMessage={isTouched && errors.join(', ')}
     />
   )
 }

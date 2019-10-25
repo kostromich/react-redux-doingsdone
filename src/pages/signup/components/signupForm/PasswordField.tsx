@@ -13,14 +13,20 @@ const PasswordField: React.FC = () => {
 
   const {
     value: password = '',
-    errors = []
+    errors = [],
+    isTouched
   } = useSelector(getSignupFormPassword)
+
+  React.useEffect(() => {
+    dispatch(validatePassword(password))
+  }, [ password, dispatch ])
 
   return (
     <Field
       changeHandler={e => dispatch(setSignupFormPasswordValue(e.currentTarget.value))}
       blurHandler={e => dispatch(validatePassword(e.currentTarget.value))}
-      touchHandler={() => dispatch(setSignupFormPasswordTouched())}
+      focusHandler={() => dispatch(setSignupFormPasswordTouched(false))}
+      touchHandler={() => dispatch(setSignupFormPasswordTouched(true))}
       isRequired={true}
       labelText='Пароль'
       id='password'
@@ -28,7 +34,7 @@ const PasswordField: React.FC = () => {
       type='password'
       placeholder='Введите пароль'
       value={password}
-      errorMessage={errors.join(', ')}
+      errorMessage={isTouched && errors.join(', ')}
     />
   )
 }

@@ -6,6 +6,7 @@ const BUTTON_TEXT = 'Добавить проект'
 const AddProjectButton: React.FC<ILinkButtonProps> = (buttonProps) => {
   return (
     <LinkButton
+      contentBefore='plus'
       {...buttonProps}
     >
       {BUTTON_TEXT}

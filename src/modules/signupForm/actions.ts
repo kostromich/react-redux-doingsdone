@@ -1,7 +1,7 @@
 import * as types from './types'
 
-export const setSignupFormNameTouched = () =>
-  ({ type: types.SET_SIGNUP_FORM_NAME_TOUCHED })
+export const setSignupFormNameTouched = (isTouched: boolean) =>
+  ({ type: types.SET_SIGNUP_FORM_NAME_TOUCHED, payload: isTouched })
 
 export const setSignupFormNameValue = (nameValue: string) =>
   ({ type: types.SET_SIGNUP_FORM_NAME_VALUE, payload: nameValue })
@@ -9,8 +9,8 @@ export const setSignupFormNameValue = (nameValue: string) =>
 export const setSignupFormNameErrors = (nameErrors: string[]) =>
   ({ type: types.SET_SIGNUP_FORM_NAME_ERRORS, payload: nameErrors })
 
-export const setSignupFormEmailTouched = () =>
-  ({ type: types.SET_SIGNUP_FORM_EMAIL_TOUCHED })
+export const setSignupFormEmailTouched = (isTouched: boolean) =>
+  ({ type: types.SET_SIGNUP_FORM_EMAIL_TOUCHED, payload: isTouched })
 
 export const setSignupFormEmailValue = (emailValue: string) =>
   ({ type: types.SET_SIGNUP_FORM_EMAIL_VALUE, payload: emailValue })
@@ -18,8 +18,8 @@ export const setSignupFormEmailValue = (emailValue: string) =>
 export const setSignupFormEmailErrors = (emailErrors: string[]) =>
   ({ type: types.SET_SIGNUP_FORM_EMAIL_ERRORS, payload: emailErrors })
 
-export const setSignupFormPasswordTouched = () =>
-  ({ type: types.SET_SIGNUP_FORM_PASSWORD_TOUCHED })
+export const setSignupFormPasswordTouched = (isTouched: boolean) =>
+  ({ type: types.SET_SIGNUP_FORM_PASSWORD_TOUCHED, payload: isTouched })
 
 export const setSignupFormPasswordValue = (passwordValue: string) =>
   ({ type: types.SET_SIGNUP_FORM_PASSWORD_VALUE, payload: passwordValue })

@@ -2,9 +2,9 @@ import * as types from './types'
 import { ISignupFormState, IFormFieldState } from 'types'
 
 const initialFormFieldState: IFormFieldState = {
-  touched: false,
+  isTouched: false,
   value: undefined,
-  errors: undefined
+  errors: []
 }
 
 const initialState: ISignupFormState = {
@@ -25,7 +25,7 @@ export default (state: ISignupFormState = initialState, { type, payload }) => {
           ...state.fields,
           name: {
             ...state.fields.name,
-            touched: true
+            isTouched: payload
           }
         }
       }
@@ -64,7 +64,7 @@ export default (state: ISignupFormState = initialState, { type, payload }) => {
           ...state.fields,
           password: {
             ...state.fields.password,
-            touched: true
+            isTouched: payload
           }
         }
       }
@@ -103,7 +103,7 @@ export default (state: ISignupFormState = initialState, { type, payload }) => {
           ...state.fields,
           email: {
             ...state.fields.email,
-            touched: true
+            isTouched: payload
           }
         }
       }

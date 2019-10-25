@@ -8,7 +8,7 @@ import { ITask } from 'types'
 
 const useStyles = makeStyles({
   root: {
-    '&:first-child $td': {
+    '&:first-child > *': {
       borderTop: '1px solid #d7dbe8'
     }
   }
