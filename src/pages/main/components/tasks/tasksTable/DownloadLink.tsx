@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import { DEFAULT_HREF } from 'helpers'
+import { DEFAULT_PATH } from 'helpers'
 import { ITask } from 'types'
 
 const useStyles = makeStyles({
@@ -37,7 +37,7 @@ const DownloadLink: React.FC<IOwnProps> = ({ className, task }) => {
   return (
     <a
       className={cx(classes.root, className)}
-      href={DEFAULT_HREF}
+      href={DEFAULT_PATH}
     >
       File
     </a>

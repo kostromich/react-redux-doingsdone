@@ -3,7 +3,7 @@ import cx from 'classnames'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import useHiddenContentStyles from 'hooks/useHiddenContentStyles'
 import { Link } from 'react-router-dom'
-import { DEFAULT_HREF } from 'helpers'
+import { DEFAULT_PATH } from 'helpers'
 
 const useStyles = makeStyles({
   root: {
@@ -35,7 +35,7 @@ const SocialLink: React.FC<IOwnProps> = ({
   className,
   text,
   icon,
-  href = DEFAULT_HREF
+  href = DEFAULT_PATH
 }) => {
   const classes = useStyles({})
   const hiddenContentClasses = useHiddenContentStyles({})

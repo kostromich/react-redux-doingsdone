@@ -1,6 +1,7 @@
 import React from 'react'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import Header from './Header'
+import SidebarHeader from './SidebarHeader'
+import SidebarInfo from './SidebarInfo'
 
 const useStyles = makeStyles({
   root: {
@@ -10,18 +11,24 @@ const useStyles = makeStyles({
 
 interface IOwnProps {
   header?: string
+  info?: string
   content: React.ReactNode
 }
 
-const Sidebar: React.FC<IOwnProps> = ({ header, content }) => {
+const Sidebar: React.FC<IOwnProps> = ({ header, info, content }) => {
   const classes = useStyles({})
 
   return (
     <section className={classes.root}>
       {header &&
-      <Header>
+      <SidebarHeader>
         {header}
-      </Header>
+      </SidebarHeader>
+      }
+      {info &&
+        <SidebarInfo>
+          {info}
+        </SidebarInfo>
       }
       {content}
     </section>

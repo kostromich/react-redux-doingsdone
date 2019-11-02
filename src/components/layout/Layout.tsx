@@ -1,6 +1,5 @@
 import React from 'react'
 import Body from './Body'
-import Content from './content/Content'
 import PageWrapper from './PageWrapper'
 import Container from './Container'
 import Header from './header/Header'

@@ -12,6 +12,7 @@ const useStyles = makeStyles({
 
 interface IOwnProps {
   sidebarHeader?: string
+  sidebarInfo?: string
   sidebarContent: React.ReactNode
   mainHeader?: string
   mainContent: React.ReactNode
@@ -19,6 +20,7 @@ interface IOwnProps {
 
 const ContentWithSidebar: React.FC<IOwnProps> = ({
   sidebarHeader,
+  sidebarInfo,
   sidebarContent,
   mainHeader,
   mainContent
@@ -29,6 +31,7 @@ const ContentWithSidebar: React.FC<IOwnProps> = ({
     <div className={classes.root}>
       <Sidebar
         header={sidebarHeader}
+        info={sidebarInfo}
         content={sidebarContent}
       />
       <Main

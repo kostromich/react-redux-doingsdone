@@ -5,7 +5,6 @@ import useHiddenContentStyles from 'hooks/useHiddenContentStyles'
 
 const useStyles = makeStyles({
   root: {
-    minHeight: '100%',
     height: '100%',
     position: 'relative',
     minWidth: 1180,

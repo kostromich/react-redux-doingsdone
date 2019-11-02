@@ -1,6 +1,6 @@
 import React from 'react'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import { IButtonProps } from './Button'
+import { IAbstractButtonProps } from './AbstractButton'
 
 const useStyles = makeStyles({
   root: {
@@ -8,14 +8,14 @@ const useStyles = makeStyles({
   }
 })
 
-interface IOwnProps {
-  ButtonComponent: React.ComponentType<IButtonProps>
+interface IOwnProps extends IAbstractButtonProps {
+  ButtonComponent: React.ComponentType<IAbstractButtonProps>
 }
 
-const SidebarButton: React.FC<IOwnProps> = ({ ButtonComponent }) => {
+const SidebarButton: React.FC<IOwnProps> = ({ ButtonComponent, ...props }) => {
   const classes = useStyles()
   return (
-    <ButtonComponent className={classes.root} />
+    <ButtonComponent className={classes.root} {...props} />
   )
 }
 

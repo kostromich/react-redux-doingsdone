@@ -1,6 +1,6 @@
 import React from 'react'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import Header from './Header'
+import MainHeader from './MainHeader'
 
 const useStyles = makeStyles({
   root: {
@@ -20,9 +20,9 @@ const Main: React.FC<IOwnProps> = ({ header, content }) => {
   return (
     <main className={classes.root}>
       {header &&
-        <Header>
+        <MainHeader>
           {header}
-        </Header>
+        </MainHeader>
       }
       {content}
     </main>

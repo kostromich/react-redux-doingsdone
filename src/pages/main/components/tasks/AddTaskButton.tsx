@@ -1,5 +1,5 @@
+import LinkButton from 'components/buttons/LinkButton'
 import React from 'react'
-import ButtonPlus from 'components/buttons/ButtonPlus'
 
 const BUTTON_TEXT = 'Добавить задачу'
 
@@ -8,9 +8,9 @@ interface IOwnProps {
 }
 const AddTaskButton: React.FC<IOwnProps> = ({ className }) => {
   return (
-    <ButtonPlus className={className}>
+    <LinkButton className={className} contentBefore='plus'>
       {BUTTON_TEXT}
-    </ButtonPlus>
+    </LinkButton>
   )
 }
 
