@@ -2,11 +2,11 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Field from 'components/form/Field'
 import {
-  setSignupFormNameTouched,
-  setSignupFormNameValue,
+  setSignUpFormNameTouched,
+  setSignUpFormNameValue,
   validateName
-} from 'modules/signupForm'
-import { getSignupFormName } from 'selectors'
+} from 'modules/signUpForm'
+import { getSignUpFormName } from 'selectors'
 
 const NameField: React.FC = () => {
   const dispatch = useDispatch()
@@ -15,7 +15,7 @@ const NameField: React.FC = () => {
     value: name = '',
     errors = [],
     isTouched
-  } = useSelector(getSignupFormName)
+  } = useSelector(getSignUpFormName)
 
   React.useEffect(() => {
     dispatch(validateName(name))
@@ -23,10 +23,9 @@ const NameField: React.FC = () => {
 
   return (
     <Field
-      changeHandler={e => dispatch(setSignupFormNameValue(e.currentTarget.value))}
+      changeHandler={e => dispatch(setSignUpFormNameValue(e.currentTarget.value))}
       blurHandler={e => dispatch(validateName(e.currentTarget.value))}
-      focusHandler={() => dispatch(setSignupFormNameTouched(false))}
-      touchHandler={() => dispatch(setSignupFormNameTouched(true))}
+      touchHandler={() => dispatch(setSignUpFormNameTouched(true))}
       isRequired={true}
       labelText='Имя'
       id='name'

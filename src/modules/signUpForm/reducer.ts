@@ -1,5 +1,5 @@
 import * as types from './types'
-import { ISignupFormState, IFormFieldState } from 'types'
+import { ISignUpFormState, IFormFieldState } from 'types'
 
 const initialFormFieldState: IFormFieldState = {
   isTouched: false,
@@ -7,7 +7,7 @@ const initialFormFieldState: IFormFieldState = {
   errors: []
 }
 
-const initialState: ISignupFormState = {
+const initialState: ISignUpFormState = {
   errors: [],
   fields: {
     name: initialFormFieldState,
@@ -16,7 +16,7 @@ const initialState: ISignupFormState = {
   }
 }
 
-export default (state: ISignupFormState = initialState, { type, payload }) => {
+export default (state: ISignUpFormState = initialState, { type, payload }) => {
   switch (type) {
     case types.SET_SIGNUP_FORM_NAME_TOUCHED: {
       return {

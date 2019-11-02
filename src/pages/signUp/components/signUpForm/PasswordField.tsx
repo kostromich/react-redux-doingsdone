@@ -2,11 +2,11 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Field from 'components/form/Field'
 import {
-  setSignupFormPasswordTouched,
-  setSignupFormPasswordValue,
+  setSignUpFormPasswordTouched,
+  setSignUpFormPasswordValue,
   validatePassword
-} from 'modules/signupForm'
-import { getSignupFormPassword } from 'selectors'
+} from 'modules/signUpForm'
+import { getSignUpFormPassword } from 'selectors'
 
 const PasswordField: React.FC = () => {
   const dispatch = useDispatch()
@@ -15,7 +15,7 @@ const PasswordField: React.FC = () => {
     value: password = '',
     errors = [],
     isTouched
-  } = useSelector(getSignupFormPassword)
+  } = useSelector(getSignUpFormPassword)
 
   React.useEffect(() => {
     dispatch(validatePassword(password))
@@ -23,10 +23,9 @@ const PasswordField: React.FC = () => {
 
   return (
     <Field
-      changeHandler={e => dispatch(setSignupFormPasswordValue(e.currentTarget.value))}
+      changeHandler={e => dispatch(setSignUpFormPasswordValue(e.currentTarget.value))}
       blurHandler={e => dispatch(validatePassword(e.currentTarget.value))}
-      focusHandler={() => dispatch(setSignupFormPasswordTouched(false))}
-      touchHandler={() => dispatch(setSignupFormPasswordTouched(true))}
+      touchHandler={() => dispatch(setSignUpFormPasswordTouched(true))}
       isRequired={true}
       labelText='Пароль'
       id='password'

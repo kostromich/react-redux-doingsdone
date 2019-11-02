@@ -1,6 +1,7 @@
-export const EMPTY_VALUE_ERROR = 'Заполните поле'
-export const WRONG_EMAIL_FORMAT_ERROR = 'Введите корректный email'
-export const SIGNUP_FORM_ERROR = 'Пожалуйста, исправьте ошибки в форме'
+export const FIELD_ERROR_EMPTY = 'Заполните поле'
+export const EMAIL_ERROR_WRONG_FORMAT = 'Введите корректный email'
+export const EMAIL_ERROR_DUPLICATE = 'Пользователь с таким email уже зарегистрирован, выберите другой адрес'
+export const ERROR_SIGN_UP_FORM = 'Пожалуйста, исправьте ошибки в форме'
 
 export const notEmptyValidator = (value: any): string | null => {
   if (
@@ -8,7 +9,7 @@ export const notEmptyValidator = (value: any): string | null => {
     || null === value
     || '' === value.toString().trim()
   ) {
-    return EMPTY_VALUE_ERROR
+    return FIELD_ERROR_EMPTY
   }
 
   return null
@@ -21,7 +22,7 @@ export const emailRegexpValidator = (email?: string): string | null => {
     return null
   }
 
-  return WRONG_EMAIL_FORMAT_ERROR
+  return EMAIL_ERROR_WRONG_FORMAT
 }
 
 const filterEmptyErrors = (errors: Array<string | null>): string[] => errors.filter(Boolean) as string[]

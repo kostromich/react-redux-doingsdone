@@ -1,1 +1,1 @@
-export * from 'modules/signupForm/selectors'
+export * from 'modules/signUpForm/selectors'

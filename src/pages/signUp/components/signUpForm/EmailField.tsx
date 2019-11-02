@@ -2,16 +2,16 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Field from 'components/form/Field'
 import {
-  setSignupFormEmailTouched,
-  setSignupFormEmailValue,
+  setSignUpFormEmailTouched,
+  setSignUpFormEmailValue,
   validateEmail
-} from 'modules/signupForm'
-import { getSignupFormEmail } from 'selectors'
+} from 'modules/signUpForm'
+import { getSignUpFormEmail } from 'selectors'
 
 const EmailField: React.FC = () => {
   const dispatch = useDispatch()
 
-  const fieldState = useSelector(getSignupFormEmail)
+  const fieldState = useSelector(getSignUpFormEmail)
   const {
     value: email = '',
     errors = [],
@@ -24,10 +24,9 @@ const EmailField: React.FC = () => {
 
   return (
     <Field
-      changeHandler={e => dispatch(setSignupFormEmailValue(e.currentTarget.value))}
+      changeHandler={e => dispatch(setSignUpFormEmailValue(e.currentTarget.value))}
       blurHandler={e => dispatch(validateEmail(e.currentTarget.value))}
-      focusHandler={() => dispatch(setSignupFormEmailTouched(false))}
-      touchHandler={() => dispatch(setSignupFormEmailTouched(true))}
+      touchHandler={() => dispatch(setSignUpFormEmailTouched(true))}
       isRequired={true}
       labelText='E-mail'
       id='email'

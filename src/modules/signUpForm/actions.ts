@@ -1,34 +1,34 @@
 import * as types from './types'
 
-export const setSignupFormNameTouched = (isTouched: boolean) =>
+export const setSignUpFormNameTouched = (isTouched: boolean) =>
   ({ type: types.SET_SIGNUP_FORM_NAME_TOUCHED, payload: isTouched })
 
-export const setSignupFormNameValue = (nameValue: string) =>
+export const setSignUpFormNameValue = (nameValue: string) =>
   ({ type: types.SET_SIGNUP_FORM_NAME_VALUE, payload: nameValue })
 
-export const setSignupFormNameErrors = (nameErrors: string[]) =>
+export const setSignUpFormNameErrors = (nameErrors: string[]) =>
   ({ type: types.SET_SIGNUP_FORM_NAME_ERRORS, payload: nameErrors })
 
-export const setSignupFormEmailTouched = (isTouched: boolean) =>
+export const setSignUpFormEmailTouched = (isTouched: boolean) =>
   ({ type: types.SET_SIGNUP_FORM_EMAIL_TOUCHED, payload: isTouched })
 
-export const setSignupFormEmailValue = (emailValue: string) =>
+export const setSignUpFormEmailValue = (emailValue: string) =>
   ({ type: types.SET_SIGNUP_FORM_EMAIL_VALUE, payload: emailValue })
 
-export const setSignupFormEmailErrors = (emailErrors: string[]) =>
+export const setSignUpFormEmailErrors = (emailErrors: string[]) =>
   ({ type: types.SET_SIGNUP_FORM_EMAIL_ERRORS, payload: emailErrors })
 
-export const setSignupFormPasswordTouched = (isTouched: boolean) =>
+export const setSignUpFormPasswordTouched = (isTouched: boolean) =>
   ({ type: types.SET_SIGNUP_FORM_PASSWORD_TOUCHED, payload: isTouched })
 
-export const setSignupFormPasswordValue = (passwordValue: string) =>
+export const setSignUpFormPasswordValue = (passwordValue: string) =>
   ({ type: types.SET_SIGNUP_FORM_PASSWORD_VALUE, payload: passwordValue })
 
-export const setSignupFormPasswordErrors = (passwordErrors: string[]) =>
+export const setSignUpFormPasswordErrors = (passwordErrors: string[]) =>
   ({ type: types.SET_SIGNUP_FORM_PASSWORD_ERRORS, payload: passwordErrors })
 
-export const setSignupFormErrors = (formErrors: string[]) =>
+export const setSignUpFormErrors = (formErrors: string[]) =>
   ({ type: types.SET_SIGNUP_FORM_ERRORS, payload: formErrors })
 
-export const clearSignupForm = () =>
+export const clearSignUpForm = () =>
   ({ type: types.CLEAR_SIGNUP_FORM })
