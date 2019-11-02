@@ -5,21 +5,21 @@ import FormRowControls from 'components/form/FormRowControls'
 import EmailField from './EmailField'
 import PasswordField from './PasswordField'
 import NameField from './NameField'
-import { addNewUser, clearSignupForm, validateSignupForm } from 'modules/signupForm'
-import { getSignupFormErrors, getSignupFormTouched } from 'selectors'
+import { addNewUser, clearSignUpForm, validateSignUpForm } from 'modules/signUpForm'
+import { getSignUpFormErrors, getSignUpFormTouched } from 'selectors'
 
-const SignupForm: React.FC = () => {
+const SignUpForm: React.FC = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(clearSignupForm())
+    dispatch(clearSignUpForm())
   }, [ dispatch ])
 
-  const formErrors = useSelector(getSignupFormErrors)
-  const isFormTouched = useSelector(getSignupFormTouched)
+  const formErrors = useSelector(getSignUpFormErrors)
+  const isFormTouched = useSelector(getSignUpFormTouched)
 
   const onFormSubmit = () => {
-    dispatch(validateSignupForm())
+    dispatch(validateSignUpForm())
 
     if (formErrors.length === 0 && isFormTouched) {
       dispatch(addNewUser())
@@ -42,4 +42,4 @@ const SignupForm: React.FC = () => {
   )
 }
 
-export default SignupForm
+export default SignUpForm

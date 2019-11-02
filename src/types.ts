@@ -48,16 +48,16 @@ export interface IGlobalState {
 
 type TUserProp = keyof IUserData
 
-export type TSignupFormFieldsState = {
+export type TSignUpFormFieldsState = {
   [key in TUserProp]: IFormFieldState
 }
 
-export interface ISignupFormState {
+export interface ISignUpFormState {
   errors: string[]
-  fields: TSignupFormFieldsState
+  fields: TSignUpFormFieldsState
 }
 
 export interface IState {
   global: IGlobalState
-  signupForm: ISignupFormState
+  signUpForm: ISignUpFormState
 }

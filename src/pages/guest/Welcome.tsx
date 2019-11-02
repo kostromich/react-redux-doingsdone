@@ -1,6 +1,6 @@
 import React from 'react'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import SignupLinkButton from 'components/buttons/SignupLinkButton'
+import SignUpLinkButton from 'components/buttons/SignUpLinkButton'
 
 const useStyles = makeStyles({
   root: {
@@ -36,7 +36,7 @@ const Welcome: React.FC = () => {
 
         <p>После создания аккаунта, пользователь может начать вносить свои дела, деля их по проектам и указывая сроки.</p>
       </div>
-      <SignupLinkButton />
+      <SignUpLinkButton />
     </div>
   )
 }

@@ -8,7 +8,7 @@ import history from 'ownHistory'
 import GlobalStyles from 'app/GlobalStyles'
 import GuestPage from 'pages/guest/GuestPage'
 import MainPage from 'pages/main/MainPage'
-import SignupPage from 'pages/signup/SignupPage'
+import SignUpPage from 'pages/signUp/SignUpPage'
 import * as routes from 'routes'
 
 const InnerApp: React.FC = () => {
@@ -27,8 +27,8 @@ const InnerApp: React.FC = () => {
               component={MainPage}
             />
             <Route
-              path={routes.ROUTE_SIGNUP_PAGE}
-              component={SignupPage}
+              path={routes.ROUTE_SIGN_UP_PAGE}
+              component={SignUpPage}
             />
             <Route
               path={routes.ROUTE_GUEST_PAGE}
