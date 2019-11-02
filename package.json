@@ -24,6 +24,7 @@
     "classnames": "^2.2.6",
     "connected-react-router": "^6.5.2",
     "date-fns": "^2.4.1",
+    "dexie": "^2.0.4",
     "history": "^4.10.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.0",

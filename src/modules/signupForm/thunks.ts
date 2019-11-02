@@ -15,6 +15,7 @@ import {
   getSignupFormUser
 } from './selectors'
 import { emailValidator, nameValidator, passwordValidator, SIGNUP_FORM_ERROR } from './validators'
+import { addUser } from 'db'
 import { IState } from 'types'
 
 export const validateName = (title: string) => async dispatch => {
@@ -54,8 +55,7 @@ export const validateSignupForm = () => async (dispatch, getState: () => IState)
 }
 
 export const addNewUser = () => async (dispatch, getState: () => IState) => {
-  const state = getState()
+  const user = getSignupFormUser(getState())
 
-  alert('check console for new user params')
-  console.log('signupFormUser', getSignupFormUser(state))
+  await addUser(user)
 }
