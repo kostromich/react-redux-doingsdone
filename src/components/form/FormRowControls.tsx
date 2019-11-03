@@ -1,7 +1,6 @@
-import React, { FormEvent } from 'react'
+import React from 'react'
 import cx from 'classnames'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import Button from 'components/buttons/Button'
 import ErrorMessage from './ErrorMessage'
 import FormRow, { IFormRowProps } from './FormRow'
 
@@ -14,13 +13,13 @@ const useStyles = makeStyles({
 
 interface IOwnProps extends IFormRowProps {
   errorMessage?: string
-  onFormSubmit: () => void
+  submitButton: React.ReactNode
 }
 
 const FormRowControls: React.FC<IOwnProps> = ({
   className,
   errorMessage,
-  onFormSubmit
+  submitButton
 }) => {
   const classes = useStyles({})
 
@@ -29,17 +28,7 @@ const FormRowControls: React.FC<IOwnProps> = ({
       {errorMessage &&
         <ErrorMessage>{errorMessage}</ErrorMessage>
       }
-      <Button
-        onClick={(e: FormEvent<HTMLButtonElement>) => {
-          e.preventDefault()
-          onFormSubmit()
-        }}
-        type='submit'
-        name='submit'
-        value='Зарегистрироваться'
-      >
-        Зарегистрироваться
-      </Button>
+      {submitButton}
     </FormRow>
   )
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import cx from 'classnames'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import LogoutLink from '../auth/LogoutLink'
+import SignOutLink from 'components/auth/SignOutLink'
 import UserName from './UserName'
-import { IUser } from 'types'
+import { TUser } from 'types'
 
 const useStyles = makeStyles({
   root: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 
 interface IOwnProps {
   className?: string
-  user: IUser
+  user: TUser
 }
 
 const UserMenu: React.FC<IOwnProps> = ({ className, user }) => {
@@ -24,7 +24,7 @@ const UserMenu: React.FC<IOwnProps> = ({ className, user }) => {
     <div className={cx(classes.root, className)}>
       <div>
         <UserName user={user} />
-        <LogoutLink />
+        <SignOutLink />
       </div>
     </div>
   )

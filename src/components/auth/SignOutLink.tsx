@@ -1,6 +1,8 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import cx from 'classnames'
 import makeStyles from '@material-ui/core/styles/makeStyles'
+import { signOutUser } from 'modules/global'
 
 const LINK_TEXT = 'Выйти'
 
@@ -18,12 +20,14 @@ interface IOwnProps {
   className?: string
 }
 
-const LogoutLink: React.FC<IOwnProps> = ({ className }) => {
+const SignOutLink: React.FC<IOwnProps> = ({ className }) => {
+  const dispatch = useDispatch()
+
   const classes = useStyles({})
 
   const onClick = e => {
     e.preventDefault()
-    alert('Logout!')
+    dispatch(signOutUser())
   }
 
   return (
@@ -37,4 +41,4 @@ const LogoutLink: React.FC<IOwnProps> = ({ className }) => {
   )
 }
 
-export default LogoutLink
+export default SignOutLink

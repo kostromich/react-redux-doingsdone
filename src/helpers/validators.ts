@@ -1,7 +1,8 @@
 export const FIELD_ERROR_EMPTY = 'Заполните поле'
 export const EMAIL_ERROR_WRONG_FORMAT = 'Введите корректный email'
-export const EMAIL_ERROR_DUPLICATE = 'Пользователь с таким email уже зарегистрирован, выберите другой адрес'
-export const ERROR_SIGN_UP_FORM = 'Пожалуйста, исправьте ошибки в форме'
+export const EMAIL_ERROR_DUPLICATE = 'Пользователь с таким email уже зарегистрирован: выберите другой адрес'
+export const USER_ERROR_NOT_FOUND = 'Пользователь с такими данным не найден: проверь правильность ввода'
+export const FORM_ERROR = 'Пожалуйста, исправьте ошибки в форме'
 
 export const notEmptyValidator = (value: any): string | null => {
   if (
