@@ -1,24 +1,26 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import Layout from 'components/layout/Layout'
 import HeaderSide from 'components/layout/header/HeaderSide'
 import HeaderSideItem from 'components/layout/header/HeaderSideItem'
 import UserMenu from 'components/userMenu/UserMenu'
-import ContentWithSidebar from '../../components/layout/content/ContentWithSidebar'
+import ContentWithSidebar from 'components/layout/content/ContentWithSidebar'
 import AddTaskButton from './components/tasks/AddTaskButton'
 import Tasks, { TASKS_HEADER } from './components/tasks/Tasks'
 import Projects, { PROJECTS_HEADER } from './components/projects/Projects'
-import { getNowUnixTime } from 'helpers'
-import { IUser } from 'types'
-
-const user: IUser = {
-  id: '1',
-  name: 'Константин',
-  password: '123456',
-  email: 'user@email.com',
-  createdAt: getNowUnixTime()
-}
+import { getUser } from 'selectors'
+import { ROUTE_403_ERROR_PAGE } from 'routes'
 
 const MainPage: React.FC = () => {
+  const user = useSelector(getUser)
+
+  if (!user) {
+    return (
+      <Redirect to={ROUTE_403_ERROR_PAGE} />
+    )
+  }
+
   return (
     <Layout
       headerContent={<HeaderSide>

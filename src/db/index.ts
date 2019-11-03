@@ -1,25 +1,33 @@
 import Dexie from 'dexie'
-import { IUser } from 'types'
+import { TUser, TUserCredentials } from 'types'
 
 class Database extends Dexie {
-  public users: Dexie.Table<IUser, string>
+  public users: Dexie.Table<TUser, string>
 
   public constructor () {
     super('Database')
 
     this.version(1).stores({
-      users: 'id, &email'
+      users: 'id, &email, [email+password]'
     })
 
     this.users = this.table('users')
   }
 
-  public async insertUser (user: IUser): Promise<void> {
-    await this.users.put(user)
+  public async insertUser (user: TUser): Promise<string> {
+    return this.users.put(user)
   }
 
-  public async getUserByEmail (email: string): Promise<IUser | undefined> {
+  public async getUserByEmail (email: string): Promise<TUser | undefined> {
     return this.users.where({ email }).first()
+  }
+
+  public async getUserByCredentials (credentials: TUserCredentials): Promise<TUser | undefined> {
+    const { email, password } = credentials
+
+    return this.users
+      .where({ email, password })
+      .first()
   }
 }
 

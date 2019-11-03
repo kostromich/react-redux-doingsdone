@@ -20,9 +20,9 @@ import {
   emailValidator,
   nameValidator,
   passwordValidator,
-  ERROR_SIGN_UP_FORM,
+  FORM_ERROR,
   EMAIL_ERROR_DUPLICATE
-} from './validators'
+} from 'helpers/validators'
 import { ROUTE_SIGN_IN_PAGE } from 'routes'
 import { IState } from 'types'
 
@@ -64,13 +64,13 @@ export const updateSignUpFormErrors = () => async (dispatch, getState: () => ISt
   const formFieldsErrors = getSignUpFormFieldsErrors(getState())
 
   if (formFieldsErrors.length > 0) {
-    dispatch(setSignUpFormErrors([ ERROR_SIGN_UP_FORM ]))
+    dispatch(setSignUpFormErrors([ FORM_ERROR ]))
   } else {
     dispatch(setSignUpFormErrors([]))
   }
 }
 
-export const addNewUser = () => async (dispatch, getState: () => IState) => {
+export const signUpUser = () => async (dispatch, getState: () => IState) => {
   const user = getSignUpFormUser(getState())
 
   const existsUser = await db.getUserByEmail(user.email)
@@ -81,8 +81,10 @@ export const addNewUser = () => async (dispatch, getState: () => IState) => {
     return
   }
 
-  db.insertUser(user)
-    .then(() => {
-      dispatch(push(ROUTE_SIGN_IN_PAGE))
-    }).catch(console.log)
+  try {
+    await db.insertUser(user)
+    dispatch(push(ROUTE_SIGN_IN_PAGE))
+  } catch (e) {
+    console.log(e)
+  }
 }

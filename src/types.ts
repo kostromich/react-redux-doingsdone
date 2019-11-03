@@ -25,16 +25,21 @@ export interface IProject {
   isActive: boolean
 }
 
-export interface IUserData {
-  name: string
-  password: string
-  email: string
-}
-
-export interface IUser extends IUserData {
+export type TUser = {
   id: string
+  email: string
+  password: string
+  name: string
   createdAt: number
 }
+
+export type TSignUpFormUserProps = Pick<TUser, 'email' | 'password' | 'name'>
+
+export type TSignUpFormFieldsState = Record<keyof TSignUpFormUserProps, IFormFieldState>
+
+export type TSignInFormUserProps = Pick<TUser, 'email' | 'password'>
+
+export type TSignInFormFieldsState = Record<keyof TSignInFormUserProps, IFormFieldState>
 
 export interface IFormFieldState {
   isTouched: boolean,
@@ -44,12 +49,7 @@ export interface IFormFieldState {
 
 export interface IGlobalState {
   isInitialized: boolean
-}
-
-type TUserProp = keyof IUserData
-
-export type TSignUpFormFieldsState = {
-  [key in TUserProp]: IFormFieldState
+  user?: TUser
 }
 
 export interface ISignUpFormState {
@@ -57,7 +57,15 @@ export interface ISignUpFormState {
   fields: TSignUpFormFieldsState
 }
 
+export interface ISignInFormState {
+  errors: string[]
+  fields: TSignInFormFieldsState
+}
+
 export interface IState {
   global: IGlobalState
   signUpForm: ISignUpFormState
+  signInForm: ISignInFormState
 }
+
+export type TUserCredentials = Pick<TUser, 'email' | 'password'>

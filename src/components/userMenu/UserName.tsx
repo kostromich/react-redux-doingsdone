@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import { IUser } from 'types'
+import { TUser } from 'types'
 
 const useStyles = makeStyles({
   root: {
@@ -11,7 +11,7 @@ const useStyles = makeStyles({
 
 interface IOwnProps {
   className?: string
-  user: IUser
+  user: TUser
 }
 
 const UserName: React.FC<IOwnProps> = ({ className, user }) => {

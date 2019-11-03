@@ -1,12 +1,13 @@
 import { combineReducers } from 'redux'
 import { connectRouter } from 'connected-react-router'
+import global from './global'
 import signUpForm from './signUpForm'
-
-const global = {}
+import signInForm from './signInForm'
 
 const createReducer = ({ history }) => combineReducers({
   global,
   signUpForm,
+  signInForm,
   router: connectRouter(history)
 } as any)
 

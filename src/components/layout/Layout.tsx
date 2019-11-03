@@ -7,7 +7,7 @@ import Footer from './footer/Footer'
 
 interface IOwnProps {
   bodyClassName?: string
-  headerContent: React.ReactNode
+  headerContent?: React.ReactNode
   content: React.ReactNode
 }
 

@@ -1,5 +1,5 @@
 import { getNowUnixTime } from 'helpers'
-import { IFormFieldState, IState, IUser } from 'types'
+import { IFormFieldState, IState, TUser } from 'types'
 
 const uuid4 = require('uuid/v4')
 
@@ -37,7 +37,7 @@ export const getSignUpFormFieldsErrors = (state: IState): string[] =>
     .map(one => one.errors || [])
     .reduce((accum, current) => accum.concat(current), [])
 
-export const getSignUpFormUser = (state: IState): IUser => ({
+export const getSignUpFormUser = (state: IState): TUser => ({
   id: uuid4(),
   email: getSignUpFormEmailValue(state),
   password: getSignUpFormPasswordValue(state),
