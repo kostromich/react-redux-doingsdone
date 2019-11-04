@@ -37,7 +37,7 @@ const InnerApp: React.FC = () => {
               path={routes.ROUTE_HOME_PAGE}
               render={props =>
                 <AuthenticatedContent
-                  ComponentToRender={MainPage}
+                  ContentPage={MainPage}
                   ErrorPage={Page403}
                   {...props}
                 />
