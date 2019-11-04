@@ -62,10 +62,15 @@ export interface ISignInFormState {
   fields: TSignInFormFieldsState
 }
 
+export interface IFiltersState {
+  activeProjectId?: string
+}
+
 export interface IState {
   global: IGlobalState
   signUpForm: ISignUpFormState
   signInForm: ISignInFormState
+  filters: IFiltersState
 }
 
 export type TUserCredentials = Pick<TUser, 'email' | 'password'>
