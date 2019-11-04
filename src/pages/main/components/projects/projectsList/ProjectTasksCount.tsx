@@ -1,5 +1,6 @@
 import React from 'react'
 import makeStyles from '@material-ui/core/styles/makeStyles'
+import { getProjectTasksCount } from 'modules/projects/getters'
 import { IProject } from 'types'
 
 const useStyles = makeStyles({
@@ -19,12 +20,13 @@ const useStyles = makeStyles({
 interface IOwnProps {
   project: IProject
 }
+
 const ProjectTasksCount: React.FC<IOwnProps> = ({ project }) => {
   const classes = useStyles({})
 
   return (
     <span className={classes.root}>
-      {project.tasksCount}
+      {getProjectTasksCount(project)}
     </span>
   )
 }

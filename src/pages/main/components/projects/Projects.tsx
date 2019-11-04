@@ -1,21 +1,23 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import SidebarButton from 'components/buttons/SidebarButton'
 import EmptyProjects from './EmptyProjects'
 import ProjectsList from './projectsList/ProjectsList'
 import AddProjectButton from './AddProjectButton'
-import { IProject } from 'types'
+import { getProjects } from 'selectors'
 
 export const PROJECTS_HEADER = 'Проекты'
 
-const projects: IProject[] = [
-  { id: '1', name: 'Название проекта', tasksCount: 0, isActive: false },
-  { id: '2', name: 'Активный проект', tasksCount: 0, isActive: true }
-]
-
 const Projects: React.FC = () => {
+  const projects = useSelector(getProjects)
+
+  if (projects.length === 0) {
+    return null
+  }
+
   return (
     <>
-      {projects.length
+      {projects.length > 0
         ? <ProjectsList projects={projects} />
         : <EmptyProjects />
       }

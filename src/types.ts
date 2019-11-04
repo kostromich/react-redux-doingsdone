@@ -18,11 +18,20 @@ export interface ITask {
 
 }
 
-export interface IProject {
+export interface IProjectData {
   id: string
   name: string
+  createdAt: number
+}
+
+export interface IProjectExtra {
   tasksCount: number
-  isActive: boolean
+  isActive?: boolean
+}
+
+export interface IProject {
+  data: IProjectData
+  extra: IProjectExtra
 }
 
 export type TUser = {
@@ -66,11 +75,17 @@ export interface IFiltersState {
   activeProjectId?: string
 }
 
+export interface IProjectsState {
+  ids: string[]
+  entities: Record<string, IProject>
+}
+
 export interface IState {
   global: IGlobalState
   signUpForm: ISignUpFormState
   signInForm: ISignInFormState
   filters: IFiltersState
+  projects: IProjectsState
 }
 
 export type TUserCredentials = Pick<TUser, 'email' | 'password'>
