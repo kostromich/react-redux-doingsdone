@@ -12,6 +12,7 @@ import MainPage from 'pages/main/MainPage'
 import SignUpPage from 'pages/signUp/SignUpPage'
 import SignInPage from 'pages/signIn/SignInPage'
 import Page403 from 'pages/403/Page403'
+import AuthenticatedContent from './AuthenticatedContent'
 import { getIsInitialized } from 'selectors'
 import * as routes from 'routes'
 
@@ -34,7 +35,13 @@ const InnerApp: React.FC = () => {
             <Route
               exact
               path={routes.ROUTE_HOME_PAGE}
-              component={MainPage}
+              render={props =>
+                <AuthenticatedContent
+                  ComponentToRender={MainPage}
+                  ErrorPage={Page403}
+                  {...props}
+                />
+              }
             />
             <Route
               exact
