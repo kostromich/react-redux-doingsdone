@@ -1,17 +1,28 @@
 import Dexie from 'dexie'
-import { TUser, TUserCredentials } from 'types'
+import {
+  IProjectData,
+  ITaskData,
+  TUser,
+  TUserCredentials
+} from 'types'
 
 class Database extends Dexie {
   public users: Dexie.Table<TUser, string>
+  public projects: Dexie.Table<IProjectData, string>
+  public tasks: Dexie.Table<ITaskData, string>
 
   public constructor () {
     super('Database')
 
     this.version(1).stores({
-      users: 'id, &email, [email+password]'
+      users: 'id, &email, [email+password]',
+      projects: 'id, userId, &[userId+title]',
+      tasks: 'id, projectId'
     })
 
     this.users = this.table('users')
+    this.projects = this.table('projects')
+    this.tasks = this.table('tasks')
   }
 
   public async insertUser (user: TUser): Promise<string> {
@@ -28,6 +39,10 @@ class Database extends Dexie {
     return this.users
       .where({ email, password })
       .first()
+  }
+
+  public async insertProjectData (projectData: IProjectData): Promise<string> {
+    return this.projects.put(projectData)
   }
 }
 

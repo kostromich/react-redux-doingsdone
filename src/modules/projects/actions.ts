@@ -1,4 +1,8 @@
 import * as types from './types'
+import { IProject } from 'types'
 
-export const addProject = (projectId?: string) =>
-  ({ type: types.SET_ACTIVE_PROJECT_ID, payload: projectId })
+export const setProjects = (projects?: IProject[]) =>
+  ({ type: types.SET_PROJECTS, payload: projects })
+
+export const addProject = (project?: IProject) =>
+  ({ type: types.ADD_PROJECT, payload: project })

@@ -12,20 +12,19 @@ const Projects: React.FC = () => {
   const projects = useSelector(getProjects)
 
   if (projects.length === 0) {
-    return null
+    return (
+      <>
+        <EmptyProjects />
+        <SidebarButton
+          ButtonComponent={AddProjectButton}
+          variant='transparent'
+        />
+      </>
+    )
   }
 
   return (
-    <>
-      {projects.length > 0
-        ? <ProjectsList projects={projects} />
-        : <EmptyProjects />
-      }
-      <SidebarButton
-        ButtonComponent={AddProjectButton}
-        variant='transparent'
-      />
-    </>
+    <ProjectsList projects={projects} />
   )
 }
 

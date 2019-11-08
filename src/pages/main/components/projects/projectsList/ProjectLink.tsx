@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import { getProjectId, getProjectName } from 'modules/projects/getters'
+import { getProjectId, getProjectTitle } from 'modules/projects/getters'
 import { setActiveProjectId } from 'modules/filters'
 import { IProject } from 'types'
 
@@ -38,7 +38,7 @@ const ProjectLink: React.FC<IOwnProps> = ({ project }) => {
       className={classes.root}
       onClick={onClick}
     >
-      {getProjectName(project)}
+      {getProjectTitle(project)}
     </div>
   )
 }

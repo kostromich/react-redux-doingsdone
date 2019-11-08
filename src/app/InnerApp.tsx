@@ -12,6 +12,7 @@ import MainPage from 'pages/main/MainPage'
 import SignUpPage from 'pages/signUp/SignUpPage'
 import SignInPage from 'pages/signIn/SignInPage'
 import Page403 from 'pages/403/Page403'
+import AddProjectPage from 'pages/addProject/AddProjectPage'
 import AuthenticatedContent from './AuthenticatedContent'
 import { getIsInitialized } from 'selectors'
 import * as routes from 'routes'
@@ -57,6 +58,11 @@ const InnerApp: React.FC = () => {
               exact
               path={routes.ROUTE_GUEST_PAGE}
               component={GuestPage}
+            />
+            <Route
+              exact
+              path={routes.ROUTE_ADD_PROJECT}
+              component={AddProjectPage}
             />
             <Route
               exact

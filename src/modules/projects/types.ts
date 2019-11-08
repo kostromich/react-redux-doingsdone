@@ -1,1 +1,2 @@
-export const SET_ACTIVE_PROJECT_ID = 'global/SET_ACTIVE_PROJECT_ID'
+export const SET_PROJECTS = 'projects/SET_PROJECTS'
+export const ADD_PROJECT = 'projects/ADD_PROJECT'
