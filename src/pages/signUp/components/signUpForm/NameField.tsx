@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Field from 'components/form/Field'
+import Field, { IFieldProps } from 'components/form/Field'
 import {
   setSignUpFormNameTouched,
   setSignUpFormNameValue,
@@ -8,7 +8,9 @@ import {
 } from 'modules/signUpForm'
 import { getSignUpFormName } from 'selectors'
 
-const NameField: React.FC = () => {
+interface IOwnProps extends Partial<IFieldProps> {}
+
+const NameField: React.FC<IOwnProps> = props => {
   const dispatch = useDispatch()
 
   const {
@@ -23,6 +25,7 @@ const NameField: React.FC = () => {
 
   return (
     <Field
+      {...props}
       changeHandler={e => dispatch(setSignUpFormNameValue(e.currentTarget.value))}
       blurHandler={e => dispatch(validateName(e.currentTarget.value))}
       touchHandler={() => dispatch(setSignUpFormNameTouched(true))}

@@ -4,6 +4,14 @@ export interface ITaskFormData {
   deadlineDate?: Date
 }
 
+export interface ITaskData {
+  id: string
+  projectId: string
+  title: string
+  deadlineAt?: number
+  completedAt?: number
+}
+
 export interface ITask extends ITaskFormData {
   id: string
   userId: string
@@ -18,11 +26,21 @@ export interface ITask {
 
 }
 
-export interface IProject {
+export interface IProjectData {
   id: string
-  name: string
+  userId: string
+  title: string
+  createdAt: number
+}
+
+export interface IProjectExtra {
   tasksCount: number
-  isActive: boolean
+  isActive?: boolean
+}
+
+export interface IProject {
+  data: IProjectData
+  extra: IProjectExtra
 }
 
 export type TUser = {
@@ -34,12 +52,13 @@ export type TUser = {
 }
 
 export type TSignUpFormUserProps = Pick<TUser, 'email' | 'password' | 'name'>
-
 export type TSignUpFormFieldsState = Record<keyof TSignUpFormUserProps, IFormFieldState>
 
 export type TSignInFormUserProps = Pick<TUser, 'email' | 'password'>
-
 export type TSignInFormFieldsState = Record<keyof TSignInFormUserProps, IFormFieldState>
+
+export type TAddProjectFormProjectProps = Pick<IProjectData, 'title'>
+export type TAddProjectFormFieldsState = Record<keyof TAddProjectFormProjectProps, IFormFieldState>
 
 export interface IFormFieldState {
   isTouched: boolean,
@@ -62,10 +81,28 @@ export interface ISignInFormState {
   fields: TSignInFormFieldsState
 }
 
+export interface IAddProjectFormState {
+  errors: string[]
+  fields: TAddProjectFormFieldsState
+}
+
+export interface IFiltersState {
+  activeProjectId?: string
+}
+
+export interface IProjectsState {
+  isProjectsLoaded: boolean
+  ids: string[]
+  entities: Record<string, IProject>
+}
+
 export interface IState {
   global: IGlobalState
   signUpForm: ISignUpFormState
   signInForm: ISignInFormState
+  addProjectForm: IAddProjectFormState
+  filters: IFiltersState
+  projects: IProjectsState
 }
 
 export type TUserCredentials = Pick<TUser, 'email' | 'password'>

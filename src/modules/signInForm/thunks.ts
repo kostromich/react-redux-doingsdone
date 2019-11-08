@@ -1,6 +1,6 @@
 import db from 'db'
 import { push } from 'connected-react-router'
-import { setUser } from 'modules/global'
+import { initApplication, setUser } from 'modules/global'
 import {
   setSignInFormEmailErrors,
   setSignInFormPasswordErrors,
@@ -69,4 +69,5 @@ export const signInUser = () => async (dispatch, getState: () => IState) => {
   window.sessionStorage.setItem('user', JSON.stringify(user))
   dispatch(setUser(user))
   dispatch(push(ROUTE_HOME_PAGE))
+  dispatch(initApplication())
 }

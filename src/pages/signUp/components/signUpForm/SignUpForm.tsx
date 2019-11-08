@@ -29,7 +29,7 @@ const SignUpForm: React.FC = () => {
 
   return (
     <Form autoComplete='off'>
-      <EmailField />
+      <EmailField autoFocus={true} />
 
       <PasswordField />
 

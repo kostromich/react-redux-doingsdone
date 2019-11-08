@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Field from 'components/form/Field'
+import Field, { IFieldProps } from 'components/form/Field'
 import {
   setSignInFormEmailTouched,
   setSignInFormEmailValue,
@@ -8,7 +8,9 @@ import {
 } from 'modules/signInForm'
 import { getSignInFormEmail } from 'selectors'
 
-const EmailField: React.FC = () => {
+interface IOwnProps extends Partial<IFieldProps> {}
+
+const EmailField: React.FC<IOwnProps> = props => {
   const dispatch = useDispatch()
 
   const fieldState = useSelector(getSignInFormEmail)
@@ -24,6 +26,7 @@ const EmailField: React.FC = () => {
 
   return (
     <Field
+      {...props}
       changeHandler={e => dispatch(setSignInFormEmailValue(e.currentTarget.value))}
       blurHandler={e => dispatch(validateEmail(e.currentTarget.value))}
       touchHandler={() => dispatch(setSignInFormEmailTouched(true))}

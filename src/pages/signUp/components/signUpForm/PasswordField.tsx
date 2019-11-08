@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Field from 'components/form/Field'
+import Field, { IFieldProps } from 'components/form/Field'
 import {
   setSignUpFormPasswordTouched,
   setSignUpFormPasswordValue,
@@ -8,7 +8,9 @@ import {
 } from 'modules/signUpForm'
 import { getSignUpFormPassword } from 'selectors'
 
-const PasswordField: React.FC = () => {
+interface IOwnProps extends Partial<IFieldProps> {}
+
+const PasswordField: React.FC<IOwnProps> = props => {
   const dispatch = useDispatch()
 
   const {
@@ -23,6 +25,7 @@ const PasswordField: React.FC = () => {
 
   return (
     <Field
+      {...props}
       changeHandler={e => dispatch(setSignUpFormPasswordValue(e.currentTarget.value))}
       blurHandler={e => dispatch(validatePassword(e.currentTarget.value))}
       touchHandler={() => dispatch(setSignUpFormPasswordTouched(true))}

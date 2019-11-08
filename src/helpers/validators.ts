@@ -2,6 +2,9 @@ export const FIELD_ERROR_EMPTY = 'Заполните поле'
 export const EMAIL_ERROR_WRONG_FORMAT = 'Введите корректный email'
 export const EMAIL_ERROR_DUPLICATE = 'Пользователь с таким email уже зарегистрирован: выберите другой адрес'
 export const USER_ERROR_NOT_FOUND = 'Пользователь с такими данным не найден: проверь правильность ввода'
+export const USER_ERROR_NOT_AUTHORIZED = 'Пожалуйста, авторизуйтесь заново'
+export const PROJECT_ERROR_EXISTS = 'Выберите другое имя: проект с таким именем уже существует'
+export const PROJECT_ERROR_SAVE = 'Ошибка сохранения проекта, попробуйте ещё раз'
 export const FORM_ERROR = 'Пожалуйста, исправьте ошибки в форме'
 
 export const notEmptyValidator = (value: any): string | null => {
@@ -41,4 +44,9 @@ export const emailValidator = (email?: string): string[] =>
 export const passwordValidator = (password?: string): string[] =>
   filterEmptyErrors([
     notEmptyValidator(password)
+  ])
+
+export const projectTitleValidator = (title?: string): string[] =>
+  filterEmptyErrors([
+    notEmptyValidator(title)
   ])

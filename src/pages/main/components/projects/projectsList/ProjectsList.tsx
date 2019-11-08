@@ -1,6 +1,7 @@
 import React from 'react'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import ProjectsListItem from './ProjectsListItem'
+import { getProjectId } from 'modules/projects/getters'
 import { IProject } from 'types'
 
 const useStyles = makeStyles({
@@ -25,7 +26,7 @@ const ProjectsList: React.FC<IOwnProps> = ({ projects }) => {
     <nav className={classes.root}>
       <ul className={classes.list}>
         {projects.map(project => (
-          <ProjectsListItem key={project.id} project={project} />
+          <ProjectsListItem key={getProjectId(project)} project={project} />
         ))}
       </ul>
     </nav>

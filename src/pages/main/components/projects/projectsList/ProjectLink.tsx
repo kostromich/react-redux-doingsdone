@@ -1,9 +1,9 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import { Link } from 'react-router-dom'
+import { getProjectId, getProjectTitle } from 'modules/projects/getters'
+import { setActiveProjectId } from 'modules/filters'
 import { IProject } from 'types'
-
-const BASE_PROJECT_ROUTE = '/project'
 
 const useStyles = makeStyles({
   root: {
@@ -13,6 +13,7 @@ const useStyles = makeStyles({
     color: 'inherit',
     textDecoration: 'none',
     letterSpacing: '0.05em',
+    cursor: 'pointer',
     '&:hover, &:focus': {
       textDecoration: 'none'
     }
@@ -23,17 +24,22 @@ interface IOwnProps {
   project: IProject
 }
 const ProjectLink: React.FC<IOwnProps> = ({ project }) => {
+  const dispatch = useDispatch()
+
   const classes = useStyles({})
 
-  const projectRoute = `${BASE_PROJECT_ROUTE}/${project.id}`
+  const onClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
+    e.preventDefault()
+    dispatch(setActiveProjectId(getProjectId(project)))
+  }
 
   return (
-    <Link
-      to={projectRoute}
+    <div
       className={classes.root}
+      onClick={onClick}
     >
-      {project.name}
-    </Link>
+      {getProjectTitle(project)}
+    </div>
   )
 }
 
