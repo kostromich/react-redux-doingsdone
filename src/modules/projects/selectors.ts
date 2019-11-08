@@ -1,6 +1,9 @@
 import { getActiveProjectId } from 'selectors'
 import { IProject, IState } from 'types'
 
+export const getIsProjectsLoaded = (state: IState): boolean =>
+  state.projects.isProjectsLoaded
+
 export const getProjectById = (id: string, state: IState): IProject => ({
   ...state.projects.entities[id],
   extra: {

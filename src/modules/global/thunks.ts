@@ -1,5 +1,6 @@
 import { push } from 'connected-react-router'
 import * as actions from './actions'
+import { loadProjects } from 'modules/projects'
 import { ROUTE_GUEST_PAGE } from 'routes'
 import { TUser } from 'types'
 
@@ -26,5 +27,6 @@ export const signOutUser = () => async dispatch => {
 
 export const initApplication = () => async dispatch => {
   await dispatch(checkUserSession())
+  await dispatch(loadProjects())
   dispatch(actions.setInitialized(true))
 }

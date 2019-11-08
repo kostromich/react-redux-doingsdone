@@ -3,9 +3,9 @@ import ascend from 'ramda/es/ascend'
 import path from 'ramda/es/path'
 import { IProject } from 'types'
 
-const sortByNameAsc = sort(ascend(path([ 'data', 'name' ])))
+const sortByTitleAsc = sort(ascend(path([ 'data', 'title' ])))
 
-export const sortProjectsByNameAsc = (projects: IProject[]): IProject[] => sortByNameAsc(projects)
+export const sortProjects = (projects: IProject[]): IProject[] => sortByTitleAsc(projects)
 
 export const normalizeProjects = (projects: IProject[]): Record<string, IProject> => {
   const entities: Record<string, IProject> = {}

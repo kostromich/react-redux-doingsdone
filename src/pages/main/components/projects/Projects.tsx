@@ -4,27 +4,33 @@ import SidebarButton from 'components/buttons/SidebarButton'
 import EmptyProjects from './EmptyProjects'
 import ProjectsList from './projectsList/ProjectsList'
 import AddProjectButton from './AddProjectButton'
-import { getProjects } from 'selectors'
+import { getIsProjectsLoaded, getProjects } from 'selectors'
 
 export const PROJECTS_HEADER = 'Проекты'
 
 const Projects: React.FC = () => {
+  const isProjectsLoaded = useSelector(getIsProjectsLoaded)
   const projects = useSelector(getProjects)
 
-  if (projects.length === 0) {
+  if (!isProjectsLoaded) {
     return (
       <>
-        <EmptyProjects />
-        <SidebarButton
-          ButtonComponent={AddProjectButton}
-          variant='transparent'
-        />
+        Loading...
       </>
     )
   }
 
   return (
-    <ProjectsList projects={projects} />
+    <>
+      {projects.length > 0
+        ? <ProjectsList projects={projects} />
+        : <EmptyProjects />
+      }
+      <SidebarButton
+        ButtonComponent={AddProjectButton}
+        variant='transparent'
+      />
+    </>
   )
 }
 

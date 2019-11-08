@@ -1,5 +1,6 @@
 import Dexie from 'dexie'
 import {
+  IProject,
   IProjectData,
   ITaskData,
   TUser,
@@ -43,6 +44,29 @@ class Database extends Dexie {
 
   public async insertProjectData (projectData: IProjectData): Promise<string> {
     return this.projects.put(projectData)
+  }
+
+  private async getProjectTasksCount (projectData: IProjectData): Promise<number> {
+    return this.tasks.where({ projectId: projectData.id }).count()
+  }
+
+  public async getUserProjects (user: TUser): Promise<IProject[]> {
+
+    const projectsData = await this.projects.where({ userId: user.id }).toArray()
+
+    const projects: IProject[] = []
+    for (const projectData of projectsData) {
+      const tasksCount = await this.getProjectTasksCount(projectData)
+
+      projects.push({
+        data: projectData,
+        extra: {
+          tasksCount
+        }
+      })
+    }
+
+    return projects
   }
 }
 

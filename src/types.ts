@@ -91,6 +91,7 @@ export interface IFiltersState {
 }
 
 export interface IProjectsState {
+  isProjectsLoaded: boolean
   ids: string[]
   entities: Record<string, IProject>
 }
