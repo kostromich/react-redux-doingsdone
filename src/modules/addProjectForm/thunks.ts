@@ -12,7 +12,8 @@ import {
   projectTitleValidator,
   FORM_ERROR,
   USER_ERROR_NOT_AUTHORIZED,
-  PROJECT_ERROR_SAVE
+  PROJECT_ERROR_SAVE,
+  PROJECT_ERROR_EXISTS
 } from 'helpers/validators'
 import { ROUTE_HOME_PAGE } from 'routes'
 import { IProject, IState } from 'types'
@@ -53,17 +54,30 @@ export const saveProject = () => async (dispatch, getState: () => IState) => {
     return
   }
 
-  const project: IProject = {
-    data: getAddProjectFormProjectData(getState()),
-    extra: {
-      tasksCount: 0
+  const projectData = getAddProjectFormProjectData(getState())
+
+  try {
+    const isProjectExists = await db.isUserProjectExists(user, projectData)
+    if (isProjectExists) {
+      dispatch(actions.setAddProjectFormTitleErrors([ PROJECT_ERROR_EXISTS ]))
+      dispatch(updateAddProjectFormErrors())
+      return
     }
+  } catch (e) {
+    console.error(e)
   }
 
-  const id = await db.insertProjectData(project.data)
+  const id = await db.insertProjectData(projectData)
 
   if (!id) {
     dispatch(actions.setAddProjectFormErrors([ PROJECT_ERROR_SAVE ]))
+  }
+
+  const project: IProject = {
+    data: projectData,
+    extra: {
+      tasksCount: 0
+    }
   }
 
   dispatch(addProject(project))

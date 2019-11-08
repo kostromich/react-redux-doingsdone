@@ -68,6 +68,12 @@ class Database extends Dexie {
 
     return projects
   }
+
+  public async isUserProjectExists (user: TUser, projectData: IProjectData): Promise<boolean> {
+    const count = await this.projects.where({ userId: user.id, title: projectData.title }).count()
+
+    return count > 0
+  }
 }
 
 const db = new Database()
