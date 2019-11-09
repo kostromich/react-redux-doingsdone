@@ -1,7 +1,9 @@
 import db from 'db'
+import { push } from 'connected-react-router'
 import * as actions from './actions'
 import { getUser } from 'selectors'
-import { IState } from 'types'
+import { ROUTE_HOME_PAGE } from 'routes'
+import { IProject, IState } from 'types'
 
 export const loadProjects = () => async (dispatch, getState: () => IState) => {
   const user = getUser(getState())
@@ -18,3 +20,6 @@ export const loadProjects = () => async (dispatch, getState: () => IState) => {
     console.error(e)
   }
 }
+
+export const redirectToProject = (project: IProject) => async dispatch =>
+  dispatch(push(`${ROUTE_HOME_PAGE}/${project.data.id}`))

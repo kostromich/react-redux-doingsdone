@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import { getProjectId, getProjectTitle } from 'modules/projects/getters'
-import { setActiveProjectId } from 'modules/filters'
+import { redirectToProject } from 'modules/projects'
+import { getProjectTitle } from 'modules/projects/getters'
 import { IProject } from 'types'
 
 const useStyles = makeStyles({
@@ -30,7 +30,7 @@ const ProjectLink: React.FC<IOwnProps> = ({ project }) => {
 
   const onClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     e.preventDefault()
-    dispatch(setActiveProjectId(getProjectId(project)))
+    dispatch(redirectToProject(project))
   }
 
   return (

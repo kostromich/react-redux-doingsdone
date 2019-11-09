@@ -34,8 +34,7 @@ const InnerApp: React.FC = () => {
         <ConnectedRouter history={history}>
           <Switch>
             <Route
-              exact
-              path={routes.ROUTE_HOME_PAGE}
+              path={`${routes.ROUTE_HOME_PAGE}/:projectId?`}
               render={props =>
                 <AuthenticatedContent
                   ContentPage={MainPage}
