@@ -1,5 +1,7 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import { setActiveProjectId } from 'modules/filters'
 import Layout from 'components/layout/Layout'
 import HeaderSide from 'components/layout/header/HeaderSide'
 import HeaderSideItem from 'components/layout/header/HeaderSideItem'
@@ -11,6 +13,16 @@ import Projects, { PROJECTS_HEADER } from './components/projects/Projects'
 import { getUser } from 'selectors'
 
 const MainPage: React.FC = () => {
+  const dispatch = useDispatch()
+
+  const { projectId } = useParams()
+
+  useEffect(() => {
+    if (projectId) {
+      dispatch(setActiveProjectId(projectId))
+    }
+  }, [ dispatch, projectId ])
+
   const user = useSelector(getUser)
 
   return (
